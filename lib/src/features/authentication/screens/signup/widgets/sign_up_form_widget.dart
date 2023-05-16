@@ -16,6 +16,7 @@ class SignUpFormWidget extends StatelessWidget {
           children: [
             TextFormField(
               decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.person),
                   labelText: "Nama lengkap",
                   hintText: "Nama lengkap atau sapaan kerap anda"
               ),
@@ -23,6 +24,7 @@ class SignUpFormWidget extends StatelessWidget {
             const SizedBox(height: tDefaultSize - 20,),
             TextFormField(
               decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.phone),
                   labelText: "No. Telp",
                   hintText: "08123..."
               ),
@@ -30,6 +32,7 @@ class SignUpFormWidget extends StatelessWidget {
             const SizedBox(height: tDefaultSize - 20,),
             TextFormField(
               decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.key),
                   labelText: "PIN",
                   hintText: "4 digit angka"
               ),
@@ -37,6 +40,7 @@ class SignUpFormWidget extends StatelessWidget {
             const SizedBox(height: tDefaultSize - 20,),
             TextFormField(
               decoration: const InputDecoration(
+                prefixIcon: Icon(Icons.key),
                   labelText: "Konfirmasi PIN",
                   hintText: "Konfirmasi ulang PIN"
               ),
@@ -49,6 +53,7 @@ class SignUpFormWidget extends StatelessWidget {
                 child: const Text("Daftar sekarang"),
               ),
             ),
+            const SizedBox(height: tDefaultSize - 10,),
           ],
         ),
       ),

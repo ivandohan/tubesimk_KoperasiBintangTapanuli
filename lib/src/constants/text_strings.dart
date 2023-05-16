@@ -34,3 +34,14 @@ const String tDontHaveAccount = "Dont have an account?";
 const String tRegisterTitle = "Get On Board";
 const String tRegisterSubTitle = "Create your profile to start your journey with us...";
 const String tAlreadyHaveAccount = "Already have an account?";
+
+const String tForgetPwTitle = "Verification!";
+const String tForgetPwSubTitle = "Choose the Option given below to reset your password.";
+const String tResetViaPhone = "Reset via phone verification.";
+
+const String tForgetPhoneSubtitle = "Enter your registered phone number to receive the OTP";
+
+const String tOtpTitle = "CO\nDE";
+const String tOtpSubTitle = "Verification";
+const String tOtpMessage = "Enter verification code sent at ";
+

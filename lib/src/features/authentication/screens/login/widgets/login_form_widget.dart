@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
+import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/forget_pw/options/forgot_pw_model_bottom_sheet.dart';
 import '../../../../../constants/sizes.dart';
+
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -20,7 +21,9 @@ class LoginForm extends StatelessWidget {
               hintText: "08123....",
             ),
           ),
-          const SizedBox(height: tFormHeight - 20,),
+          const SizedBox(
+            height: tFormHeight - 20,
+          ),
           TextFormField(
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.key),
@@ -38,11 +41,15 @@ class LoginForm extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                ForgetPasswordScreen.buildShowModalBottomSheet(context);
+              },
               child: const Text("Lupa password?"),
             ),
           ),
-          const SizedBox(height: tFormHeight - 20,),
+          const SizedBox(
+            height: tFormHeight - 20,
+          ),
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
@@ -50,9 +57,15 @@ class LoginForm extends StatelessWidget {
               child: Text("MASUK"),
             ),
           ),
-          const SizedBox(height: tFormHeight - 20,),
+          const SizedBox(
+            height: tFormHeight - 20,
+          ),
         ],
       ),
     );
   }
+
+
 }
+
+

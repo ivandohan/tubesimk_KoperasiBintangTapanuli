@@ -70,12 +70,7 @@ class WelcomeScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: OutlinedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const LoginScreen()),
-                              );
-                            },
+                            onPressed: () => Get.to(() => const LoginScreen()),
                             child: const Text("MASUK"),
                           ),
                         ),
@@ -84,12 +79,7 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const SignUpScreen()),
-                              );
-                            },
+                            onPressed: () => Get.to(() => const SignUpScreen()),
                             child: const Text("DAFTAR AKUN"),
                           ),
                         ),

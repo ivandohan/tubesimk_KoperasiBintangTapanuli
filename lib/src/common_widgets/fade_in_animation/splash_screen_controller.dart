@@ -8,7 +8,7 @@ class FadeInAnimationController extends GetxController {
 
   RxBool animate = false.obs;
 
-  Future animateIn() async {
+  Future animateIn(context) async {
     await Future.delayed(Duration(milliseconds: 500));
     animate.value = true;
 
@@ -16,12 +16,12 @@ class FadeInAnimationController extends GetxController {
     animate.value = false;
 
     await Future.delayed(Duration(milliseconds: 2000));
-    Get.to(WelcomeScreen());
+    Get.to(() => const WelcomeScreen());
     // Get.to(OnBoardingScreen());
   }
 
   Future animateOut() async {
-    // await Future.delayed(Duration(milliseconds: 500));
+    await Future.delayed(Duration(milliseconds: 500));
     animate.value = true;
   }
 }
