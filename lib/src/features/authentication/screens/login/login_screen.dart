@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'login_footer_widget.dart';
-import 'login_form_widget.dart';
-import 'login_header_widget.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/common_widgets/form/form_footer_widget.dart';
+import '../../../../common_widgets/form/form_header_widget.dart';
+import '../../../../constants/image_strings.dart';
+import '../../../../constants/text_strings.dart';
+import 'widgets/login_form_widget.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
 
     return SafeArea(
       child: Scaffold(
@@ -17,10 +18,19 @@ class LoginScreen extends StatelessWidget {
             padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                LoginHeaderWidget(size: size),
-                const LoginForm(),
-                const LoginFooterWidget(),
+              children: const [
+                FormHeaderWidget(
+                  image: tWelcomeScreenImage,
+                  title: tLoginTitle,
+                  subTitle: tLoginSubTitle,
+                ),
+                LoginForm(),
+                FormFooterWidget(
+                  buttonLabel: "Masuk dengan akun Google",
+                  textSpan1: "Belum punya akun? ",
+                  textSpan2: "Klik untuk mendaftar.",
+                  onPressed: null,
+                ),
               ],
             ),
           ),
@@ -29,5 +39,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
-

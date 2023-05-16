@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants/sizes.dart';
+import '../../../../../constants/sizes.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -18,7 +18,6 @@ class LoginForm extends StatelessWidget {
               prefixIcon: Icon(Icons.phone),
               labelText: "No. Telp",
               hintText: "08123....",
-              border: OutlineInputBorder(),
             ),
           ),
           const SizedBox(height: tFormHeight - 20,),
@@ -27,7 +26,6 @@ class LoginForm extends StatelessWidget {
               prefixIcon: Icon(Icons.key),
               labelText: "PIN",
               hintText: "4 digit angka",
-              border: OutlineInputBorder(),
               suffixIcon: IconButton(
                 onPressed: null,
                 icon: Icon(Icons.remove_red_eye_sharp),

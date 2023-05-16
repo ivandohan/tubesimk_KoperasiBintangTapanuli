@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants/image_strings.dart';
-import '../../../../constants/sizes.dart';
+import '../../constants/image_strings.dart';
+import '../../constants/sizes.dart';
 
-class LoginFooterWidget extends StatelessWidget {
-  const LoginFooterWidget({
+class FormFooterWidget extends StatelessWidget {
+  const FormFooterWidget({
     super.key,
+    required this.buttonLabel,
+    required this.textSpan1,
+    required this.textSpan2,
+    this.onPressed,
   });
+
+  final String buttonLabel, textSpan1, textSpan2;
+  final Function()? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -24,22 +31,22 @@ class LoginFooterWidget extends StatelessWidget {
               width: 20,
             ),
             onPressed: () {},
-            label: const Text("Masuk dengan akun Google"),
+            label: Text(buttonLabel),
           ),
         ),
         const SizedBox(
           height: tFormHeight - 20,
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: onPressed,
           child: Text.rich(
             TextSpan(
-              text: "Belum punya akun?",
+              text: textSpan1,
               style: Theme.of(context).textTheme.bodyText1,
-              children: const [
+              children: [
                 TextSpan(
-                  text: " Klik untuk mendaftar.",
-                  style: TextStyle(
+                  text: textSpan2,
+                  style: const TextStyle(
                     color: Colors.blue,
                   ),
                 ),

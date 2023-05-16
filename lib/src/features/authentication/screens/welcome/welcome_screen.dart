@@ -7,6 +7,7 @@ import 'package:tubesimk_koperasibintangtapanuli/src/constants/colors.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/image_strings.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/login/login_screen.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/signup/signup_screen.dart';
 
 import '../../../../common_widgets/fade_in_animation/splash_screen_controller.dart';
 import '../../../../constants/text_strings.dart';
@@ -69,7 +70,12 @@ class WelcomeScreen extends StatelessWidget {
                       children: [
                         Expanded(
                           child: OutlinedButton(
-                            onPressed: () => Get.to(const LoginScreen()),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                              );
+                            },
                             child: const Text("MASUK"),
                           ),
                         ),
@@ -78,7 +84,12 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => const SignUpScreen()),
+                              );
+                            },
                             child: const Text("DAFTAR AKUN"),
                           ),
                         ),
