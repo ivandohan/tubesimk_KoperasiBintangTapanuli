@@ -5,29 +5,29 @@ const String tSignup = "Signup";
 const String tPhoneNo = "Phone No";
 const String tPassword = "Password";
 const String tFullName = "Full Name";
-const String tForgetPassword = "Forget Password";
+const String tForgetPassword = "Lupa Password";
 const String tSignInWithGoogle = "Sign-In with Google";
 
 const String tAppName = "Dohan";
 const String tAppTagLine = "Learn to Code. \nFree for Everyone.";
 
-const String tOnBoardingTitle1 = "Build Awesome Apps";
-const String tOnBoardingTitle2 = "Learn from Youtube";
-const String tOnBoardingTitle3 = "Get Code & Resources";
+const String tOnBoardingTitle1 = "Selamat Datang, Bossku!";
+const String tOnBoardingTitle2 = "Perjalanan Nyaman dan Aman";
+const String tOnBoardingTitle3 = "Pesan Tiket dengan Cepat";
 
-const tOnBoardingSubTitle1 = "Let's start your journey with this easy and amazing app.";
-const tOnBoardingSubTitle2 = "Get video tutorials of each topic to learn things easily.";
-const tOnBoardingSubTitle3 = "Save times by just copy pasting complete apps.";
+const tOnBoardingSubTitle1 = "Koperasi Bintang Tapanuli di era digital";
+const tOnBoardingSubTitle2 = "Mau pergi ke luar kota? Atau kembali ke Bonapasogit? Biar kami yang antar";
+const tOnBoardingSubTitle3 = "Sekarang tidak perlu menunggu lama lagi, bisa pesan tiket dari dalam aplikasi.";
 
 const tOnBoardingCounter1 = "1/3";
 const tOnBoardingCounter2 = "2/3";
 const tOnBoardingCounter3 = "3/3";
 
-const String tWelcomeTitle = "Build Awesome Apps";
-const String tWelcomeSubTitle = "Let's put your creativity on the development highway, craft apps that everyone love it.";
+const String tWelcomeTitle = "Masuk dengan Akun Kamu";
+const String tWelcomeSubTitle = "Agar mempermudah kamu kedepannya, silahkan masuk dengan kamu dulu ya. Kalau belum punya, silahkan daftar akun dulu.";
 
-const String tLoginTitle = "Welcome Back,";
-const String tLoginSubTitle = "Make it work, make it right, make it fast.";
+const String tLoginTitle = "Jumpa Lagi, Bossku";
+const String tLoginSubTitle = "Isi formnya sesuai akun kamu yang terdaftar ya.";
 const String tRememberMe = "Remember me?";
 const String tDontHaveAccount = "Dont have an account?";
 
@@ -35,15 +35,16 @@ const String tRegisterTitle = "Get On Board";
 const String tRegisterSubTitle = "Create your profile to start your journey with us...";
 const String tAlreadyHaveAccount = "Already have an account?";
 
-const String tForgetPwTitle = "Verification!";
-const String tForgetPwSubTitle = "Choose the Option given below to reset your password.";
-const String tResetViaPhone = "Reset via phone verification.";
+const String tForgetPwTitle = "Verifikasi dulu Bossku";
+const String tForgetPwSubTitle = "Pilih salah satu dari opsi berikut ya.";
+const String tForgetPwSubTitle2 = "Masukkan nomor telepon yang terdaftar.";
+const String tResetViaPhone = "Nomor telepon terdaftar.";
 
 const String tForgetPhoneSubtitle = "Enter your registered phone number to receive the OTP";
 
-const String tOtpTitle = "CO\nDE";
-const String tOtpSubTitle = "Verification";
-const String tOtpMessage = "Enter verification code sent at ";
+const String tOtpTitle = "KO\nDE";
+const String tOtpSubTitle = "Verifikasi";
+const String tOtpMessage = "Masukkan kode yang kamu terima dari SMS.";
 
 const String tDashboardAppbarTitle = "Koperasi Bintang Tapanuli";
 const String tDashboardTitle = "Horas, D. Ohann!";

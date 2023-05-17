@@ -24,7 +24,7 @@ class ForgetPwPhoneScreen extends StatelessWidget {
                 ),
                 const FormHeaderWidget(
                   title: tForgetPassword,
-                  subTitle: tForgetPwSubTitle,
+                  subTitle: tForgetPwSubTitle2,
                   image: tForgetPwImage,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   heightBetween: 30,

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/dashboard/dashboard_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/forget_pw/options/forgot_pw_model_bottom_sheet.dart';
 import '../../../../../constants/sizes.dart';
 
@@ -53,8 +55,8 @@ class LoginForm extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
-              onPressed: () {},
-              child: Text("MASUK"),
+              onPressed: () => Get.to(() => const DashboardScreen()),
+              child: const Text("MASUK"),
             ),
           ),
           const SizedBox(

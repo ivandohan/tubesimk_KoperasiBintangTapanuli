@@ -29,7 +29,7 @@ class ForgetPasswordScreen {
               height: tDefaultSize,
             ),
             ForgetPwBtnWidget(
-              title: "Phone",
+              title: "No. Telp",
               subTitle: tResetViaPhone,
               iconData: Icons.phone_android_sharp,
               onTap: () {

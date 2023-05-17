@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/dashboard/dashboard.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/dashboard/dashboard_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/on_boarding/on_boarding_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/welcome/welcome_screen.dart';
 
@@ -17,8 +17,8 @@ class FadeInAnimationController extends GetxController {
     animate.value = false;
 
     await Future.delayed(const Duration(milliseconds: 2000));
-    Get.to(() => const Dashboard());
-    // Get.to(OnBoardingScreen());
+    // Get.to(() => const Dashboard());
+    Get.to(OnBoardingScreen());
   }
 
   Future animateOut() async {

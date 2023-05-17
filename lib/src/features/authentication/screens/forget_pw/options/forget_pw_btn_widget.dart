@@ -44,6 +44,7 @@ class ForgetPwBtnWidget extends StatelessWidget {
                   subTitle,
                   style:
                   Theme.of(context).textTheme.bodyText2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),

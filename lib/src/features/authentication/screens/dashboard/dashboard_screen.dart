@@ -8,8 +8,8 @@ import 'widgets/dashboard_categories.dart';
 import 'widgets/dashboard_search.dart';
 import 'widgets/dashboard_top_parts.dart';
 
-class Dashboard extends StatelessWidget {
-  const Dashboard({super.key});
+class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
