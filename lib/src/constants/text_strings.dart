@@ -31,8 +31,8 @@ const String tLoginSubTitle = "Isi formnya sesuai akun kamu yang terdaftar ya.";
 const String tRememberMe = "Remember me?";
 const String tDontHaveAccount = "Dont have an account?";
 
-const String tRegisterTitle = "Get On Board";
-const String tRegisterSubTitle = "Create your profile to start your journey with us...";
+const String tRegisterTitle = "Daftark Akun Kamu";
+const String tRegisterSubTitle = "Dapatkan kemudahan saat mengakses aplikasi.";
 const String tAlreadyHaveAccount = "Already have an account?";
 
 const String tForgetPwTitle = "Verifikasi dulu Bossku";
