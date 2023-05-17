@@ -45,3 +45,16 @@ const String tOtpTitle = "CO\nDE";
 const String tOtpSubTitle = "Verification";
 const String tOtpMessage = "Enter verification code sent at ";
 
+const String tDashboardAppbarTitle = "Koperasi Bintang Tapanuli";
+const String tDashboardTitle = "Horas, D. Ohann!";
+const String tDashboardHeading = "Mau ke mana hari ini?";
+const String tDashboardSearch = "Search...";
+const String tDashboardBannerText = "Layanan Kami";
+const String tDashboardBannerTitle1 = "Booking Tiket Penumpang";
+const String tDashboardBannerSubtitle1 = "10 Lessons";
+const String tDashboardBannerTitle2 = "Barang Bagasi";
+const String tDashboardBannerSubtitle2 = "16 Lessons";
+const String tDashboardBannerTitle3 = "Antar Berkas";
+const String tDashboardBannerSubtitle3 = "10 Lessons";
+const String tDashboardTextButton = "View All";
+const String tDashboardTopPartText = "Panduan Pelanggan";

@@ -12,9 +12,9 @@ const String tGoogleLogoImage = "assets/logos/google.png";
 
 const String tForgetPwImage = "assets/images/forget_pw_images/skate_cat.jpeg";
 
-const String tUserProfileImage = "assets/images/dashboard/";
-const String tBannerImage1 = "assets/images/dashboard/";
-const String tBannerImage2 = "assets/images/dashboard/";
-const String tTopCourseImage1 = "assets/images/dashboard/";
-const String tTopCourseImage2 = "assets/images/dashboard/";
+const String tDashboardUserProfileImage = "assets/images/dashboard/profile.jpeg";
+const String tDashboardBannerImage1 = "assets/images/dashboard/card1.jpeg";
+const String tDashboardBannerImage2 = "assets/images/dashboard/card2.jpeg";
+const String tDashboardTopPartImage1 = "assets/images/dashboard/bann1.png";
+const String tDashboardTopPartImage2 = "assets/images/dashboard/bann2.jpeg";
 
