@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/controllers/auth_controller.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/dashboard/dashboard_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/forget_pw/options/forgot_pw_model_bottom_sheet.dart';
 import '../../../../../constants/sizes.dart';
@@ -12,15 +13,19 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var emailC = TextEditingController();
+    var pwC = TextEditingController();
+
     return Form(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           TextFormField(
+            controller: emailC,
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.phone),
-              labelText: "No. Telp",
-              hintText: "08123....",
+              labelText: "Email",
+              hintText: "contoh@contoh",
             ),
           ),
           const SizedBox(
@@ -29,8 +34,8 @@ class LoginForm extends StatelessWidget {
           TextFormField(
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.key),
-              labelText: "PIN",
-              hintText: "4 digit angka",
+              labelText: "Password",
+              hintText: "Masukkan Password",
               suffixIcon: IconButton(
                 onPressed: null,
                 icon: Icon(Icons.remove_red_eye_sharp),
@@ -44,7 +49,7 @@ class LoginForm extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: TextButton(
               onPressed: () {
-                ForgetPasswordScreen.buildShowModalBottomSheet(context);
+                AuthController.instance.login(emailC.text, pwC.text);
               },
               child: const Text("Lupa password?"),
             ),

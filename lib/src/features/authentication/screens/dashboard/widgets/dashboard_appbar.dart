@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/controllers/auth_controller.dart';
 
 import '../../../../../constants/colors.dart';
 import '../../../../../constants/image_strings.dart';
@@ -29,7 +30,9 @@ class DashboardAppBard extends StatelessWidget implements PreferredSizeWidget {
               color: tCardBgColor
           ),
           child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AuthController.instance.logout();
+            },
             icon: const Image(
               image: AssetImage(tDashboardUserProfileImage),
               width: 25,

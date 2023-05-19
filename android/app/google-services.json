@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "564723066379",
+    "project_id": "tubesimk-kbt-9bcf9",
+    "storage_bucket": "tubesimk-kbt-9bcf9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564723066379:android:5e19bf6b4144bee096890e",
+        "android_client_info": {
+          "package_name": "com.example.tubesimk_koperasibintangtapanuli"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564723066379-vh415l2acm5g2k3rrpesspnilqi9m2um.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDw2qsyXyhdaD7sVMshIYr5uWfPNNEJH1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564723066379-vh415l2acm5g2k3rrpesspnilqi9m2um.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

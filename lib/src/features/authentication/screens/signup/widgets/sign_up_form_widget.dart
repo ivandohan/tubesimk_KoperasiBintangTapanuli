@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/controllers/auth_controller.dart';
 
 import '../../../../../constants/sizes.dart';
 
@@ -9,6 +10,9 @@ class SignUpFormWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var emailC = TextEditingController();
+    var pwC = TextEditingController();
+
     return SizedBox(
       child: Form(
         child: Column(
@@ -23,14 +27,16 @@ class SignUpFormWidget extends StatelessWidget {
             ),
             const SizedBox(height: tDefaultSize - 20,),
             TextFormField(
+              controller: emailC,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.phone),
-                  labelText: "No. Telp",
-                  hintText: "08123..."
+                  labelText: "Email",
+                  hintText: "contoh@contoh.com"
               ),
             ),
             const SizedBox(height: tDefaultSize - 20,),
             TextFormField(
+              controller: pwC,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.key),
                   labelText: "PIN",
@@ -49,7 +55,9 @@ class SignUpFormWidget extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: (){},
+                onPressed: (){
+                  AuthController.instance.register(emailC.text, pwC.text);
+                },
                 child: const Text("Daftar sekarang"),
               ),
             ),
