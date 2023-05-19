@@ -2,9 +2,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/controllers/auth_controller.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/utils/theme/theme.dart';
+
+import 'src/cores/controllers/auth_controller.dart';
+import 'src/cores/screens/splash_screen/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
