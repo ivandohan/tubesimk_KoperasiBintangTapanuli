@@ -10,22 +10,22 @@ class AuthController extends GetxController {
   late Rx<User?> _user;
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  @override
-  void onReady() {
-    super.onReady();
-    _user = Rx<User?>(auth.currentUser);
-    _user.bindStream(auth.userChanges());
-    ever(_user, _initialScreen);
-  }
-
-  _initialScreen(User? user) {
-    if(user == null) {
-      print("Login Page");
-      Get.offAll(() => LoginScreen());
-    } else {
-      Get.offAll(() => DashboardScreen());
-    }
-  }
+  // @override
+  // void onReady() {
+  //   super.onReady();
+  //   _user = Rx<User?>(auth.currentUser);
+  //   _user.bindStream(auth.userChanges());
+  //   ever(_user, _initialScreen);
+  // }
+  //
+  // _initialScreen(User? user) {
+  //   if(user == null) {
+  //     print("Login Page");
+  //     Get.offAll(() => LoginScreen());
+  //   } else {
+  //     Get.offAll(() => DashboardScreen());
+  //   }
+  // }
 
   void register(String email, String password) async {
     try {

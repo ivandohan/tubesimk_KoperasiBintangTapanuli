@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/colors.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/image_strings.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/maps/order_tracking_screen.dart';
 
 
 class DashboardBannersWidget extends StatelessWidget {
@@ -28,38 +30,41 @@ class DashboardBannersWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Container(
-              decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: tCardBgColor,),
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
-                      Flexible(
-                        child: Icon(Icons.card_travel),
-                      ),
-                      Flexible(
-                        child: Image(image: AssetImage(tDashboardBannerImage1), height: 125,),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: tDashboardPadding,),
-                  Text(
-                    tDashboardBannerTitle1,
-                    style: txtTheme.headline4,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  Text(
-                    tDashboardBannerSubtitle1,
-                    style: txtTheme.bodyText2,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ],
+            child: GestureDetector(
+              onTap: () => Get.to(() => TrackingMenu()),
+              child: Container(
+                decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: tCardBgColor,),
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Flexible(
+                          child: Icon(Icons.card_travel),
+                        ),
+                        Flexible(
+                          child: Image(image: AssetImage(tDashboardBannerImage1), height: 125,),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: tDashboardPadding,),
+                    Text(
+                      tDashboardBannerTitle1,
+                      style: txtTheme.headline4,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      tDashboardBannerSubtitle1,
+                      style: txtTheme.bodyText2,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

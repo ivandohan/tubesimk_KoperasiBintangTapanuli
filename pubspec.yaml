@@ -43,6 +43,13 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   firebase_auth: ^4.6.1
   firebase_core: ^2.13.0
+  http: ^0.13.6
+  google_maps_flutter: ^2.2.6
+  flutter_polyline_points: ^1.0.0
+  location: ^4.4.0
+  flutter_svg: ^2.0.5
+  cloud_firestore: ^4.7.1
+  permission_handler: ^10.2.0
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +88,7 @@ flutter:
      - assets/images/welcome_images/
      - assets/images/forget_pw_images/
      - assets/images/dashboard/
+     - assets/icons/
      - assets/logos/
 
   # An image asset can refer to one or more resolution-specific "variants", see

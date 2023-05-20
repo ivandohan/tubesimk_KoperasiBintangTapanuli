@@ -4,7 +4,6 @@ import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart';
 import 'widgets/dashboard_appbar.dart';
 import 'widgets/dashboard_banners.dart';
-import 'widgets/dashboard_categories.dart';
 import 'widgets/dashboard_search.dart';
 import 'widgets/dashboard_top_parts.dart';
 
