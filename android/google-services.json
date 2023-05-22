@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:942480271263:android:1fd8ced1d263b59d92bfaa",
+        "mobilesdk_app_id": "1:942480271263:android:b3aef1fc232f210b92bfaa",
         "android_client_info": {
           "package_name": "com.example.tubesimk_koperasibintangtapanuli"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "942480271263-818788rorjsd0ord1vpjgubvjj9gt89s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tubesimk_koperasibintangtapanuli",
+            "certificate_hash": "4dd10cfac492dceaaf7f28ef5f862cf61b8e2867"
+          }
+        },
         {
           "client_id": "942480271263-c7tgsgvo4gsv14rs9qlfmjr33vs074dh.apps.googleusercontent.com",
           "client_type": 3

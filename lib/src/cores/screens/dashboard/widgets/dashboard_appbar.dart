@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/colors.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/image_strings.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/auth_controller.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/auth_factory.dart';
 
 
-class DashboardAppBard extends StatelessWidget implements PreferredSizeWidget {
-  const DashboardAppBard({
+class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const DashboardAppBar({
     super.key,
   });
 
@@ -31,7 +31,7 @@ class DashboardAppBard extends StatelessWidget implements PreferredSizeWidget {
           ),
           child: IconButton(
             onPressed: () {
-              AuthController.instance.logout();
+              AuthFactory.instance.logout();
             },
             icon: const Image(
               image: AssetImage(tDashboardUserProfileImage),

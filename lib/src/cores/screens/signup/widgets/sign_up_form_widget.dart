@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/auth_controller.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/sign_up_controller.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/auth_factory.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/forget_pw/otp/otp_screen.dart';
 
 class SignUpFormWidget extends StatelessWidget {
   const SignUpFormWidget({
@@ -11,6 +14,9 @@ class SignUpFormWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     var emailC = TextEditingController();
     var pwC = TextEditingController();
+    var nameC = TextEditingController();
+
+    var sc = Get.put(SignUpController());
 
     return SizedBox(
       child: Form(
@@ -18,6 +24,7 @@ class SignUpFormWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
+              controller: nameC,
               decoration: const InputDecoration(
                 prefixIcon: Icon(Icons.person),
                   labelText: "Nama lengkap",
@@ -54,8 +61,8 @@ class SignUpFormWidget extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: (){
-                  AuthController.instance.register(emailC.text, pwC.text);
+                onPressed: () async {
+                  sc.registerUser(nameC.text, emailC.text, pwC.text);
                 },
                 child: const Text("Daftar sekarang"),
               ),

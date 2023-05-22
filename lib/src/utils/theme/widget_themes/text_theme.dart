@@ -17,7 +17,7 @@ class TTextTheme {
       color: tDarkColor,
     ),
     headline3: GoogleFonts.poppins(
-      fontSize: 24,
+      fontSize: 17,
       fontWeight: FontWeight.w700,
       color: tDarkColor,
     ),

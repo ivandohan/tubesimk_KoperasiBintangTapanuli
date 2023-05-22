@@ -50,6 +50,10 @@ dependencies:
   flutter_svg: ^2.0.5
   cloud_firestore: ^4.7.1
   permission_handler: ^10.2.0
+  flutter_typeahead: ^4.4.0
+  flutter_google_places: ^0.3.0
+  intl: ^0.18.1
+  lottie: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -88,6 +92,7 @@ flutter:
      - assets/images/welcome_images/
      - assets/images/forget_pw_images/
      - assets/images/dashboard/
+     - assets/images/banners/
      - assets/icons/
      - assets/logos/
 

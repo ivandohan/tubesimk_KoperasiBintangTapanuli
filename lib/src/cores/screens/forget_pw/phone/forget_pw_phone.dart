@@ -46,7 +46,6 @@ class ForgetPwPhoneScreen extends StatelessWidget {
                         width: double.infinity,
                         child: ElevatedButton(
                           onPressed: () {
-                            Get.to(() => const OTPScreen());
                           },
                           child: const Text("Lanjut"),
                         ),

@@ -18,3 +18,5 @@ const String tDashboardBannerImage2 = "assets/images/dashboard/card2.jpeg";
 const String tDashboardTopPartImage1 = "assets/images/dashboard/bann1.png";
 const String tDashboardTopPartImage2 = "assets/images/dashboard/bann2.jpeg";
 
+const String tBannerBookingImage = "assets/images/banners/mountain.jpeg";
+

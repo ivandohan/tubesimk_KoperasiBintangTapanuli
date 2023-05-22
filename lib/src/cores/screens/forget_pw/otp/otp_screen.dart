@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/auth_factory.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/dashboard_screen.dart';
 
 class OTPScreen extends StatelessWidget {
-  const OTPScreen({super.key});
+  const OTPScreen({super.key, required this.verId});
+
+  final String verId;
 
   @override
   Widget build(BuildContext context) {
+    String smsCode = "";
     return SafeArea(
       child: Scaffold(
         body: Container(
@@ -40,6 +46,9 @@ class OTPScreen extends StatelessWidget {
                 numberOfFields: 6,
                 fillColor: Colors.black.withOpacity(0.1),
                 filled: true,
+                onSubmit: (code) {
+                  smsCode = code;
+                },
               ),
               const SizedBox(
                 height: 50,
@@ -47,7 +56,9 @@ class OTPScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    AuthFactory.instance.verifyOTP(verId, smsCode);
+                  },
                   child: const Text("Lanjut"),
                 ),
               ),

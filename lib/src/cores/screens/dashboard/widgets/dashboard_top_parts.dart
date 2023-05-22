@@ -4,7 +4,6 @@ import 'package:tubesimk_koperasibintangtapanuli/src/constants/image_strings.dar
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/models/dashboard_top_part_model.dart';
 
-
 class DashboardTopPartsWidget extends StatelessWidget {
   const DashboardTopPartsWidget({
     super.key,
@@ -20,10 +19,6 @@ class DashboardTopPartsWidget extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
-        border: Border.all(
-          width: 0.5,
-          color: Colors.black26.withOpacity(0.2),
-        ),
         borderRadius: BorderRadius.circular(10),
       ),
       height: 220,
@@ -32,45 +27,56 @@ class DashboardTopPartsWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: list.length,
         itemBuilder: (_, index) => SizedBox(
-            width: 320,
-            height: 200,
-            child: Padding(
-              padding: const EdgeInsets.only(right: 10, top: 5),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: tCardBgColor,
+          width: 320,
+          height: 200,
+          child: Padding(
+            padding: const EdgeInsets.only(right: 10, top: 5),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: tCardBgColor,
+                border: Border.all(
+                  width: 0.5,
+                  color: Colors.black26.withOpacity(0.2),
                 ),
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              ),
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Flexible(
+                        child: Text(
+                          list[index].title,
+                          style: txtTheme.headline4,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      const Flexible(
+                        child: Image(
+                          image: AssetImage(tDashboardTopPartImage1),
+                          height: 110,
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    child: Row(
                       children: [
-                        Flexible(
-                          child: Text(
-                            list[index].title,
-                            style: txtTheme.headline4,
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
+                        Container(
+                          height: 60,
+                            width: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(30),
+                              color: Colors.black
+                            ),
+                            child: const Icon(Icons.arrow_forward_ios, color: Colors.white,)),
+                        const SizedBox(
+                          width: tDashboardPadding,
                         ),
-                        const Flexible(
-                          child: Image(
-                            image: AssetImage(tDashboardTopPartImage1),
-                            height: 110,
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        ElevatedButton(
-                          onPressed: (){},
-                          child: const Icon(Icons.arrow_forward_ios),
-                        ),
-                        const SizedBox(width: tDashboardPadding,),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -88,11 +94,12 @@ class DashboardTopPartsWidget extends StatelessWidget {
                         ),
                       ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ),
+        ),
       ),
     );
   }

@@ -4,8 +4,8 @@ import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
-class UserMapController extends GetxController {
-  static UserMapController instance = Get.find();
+class UserMapFactory extends GetxController {
+  static UserMapFactory instance = Get.find();
 
   final Completer<GoogleMapController> controller = Completer();
   static const LatLng sourceLocation = LatLng(37.4220656, -122.08480897);

@@ -16,7 +16,7 @@ class DashboardScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        appBar: const DashboardAppBard(),
+        appBar: const DashboardAppBar(),
         body: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.all(tDashboardPadding),
@@ -33,7 +33,7 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: tDashboardPadding,),
 
-                  DashboardSearchWidget(txtTheme: txtTheme),
+                  DashboardSearchWidget(),
                   const SizedBox(height: tDashboardPadding,),
 
                   // DashboardCategoriesWidget(txtTheme: txtTheme),
