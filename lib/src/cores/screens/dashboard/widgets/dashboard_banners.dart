@@ -9,13 +9,16 @@ import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/order_
 class DashboardBannersWidget extends StatelessWidget {
   const DashboardBannersWidget({
     super.key,
-    required this.txtTheme,
+    required this.userId,
   });
 
-  final TextTheme txtTheme;
+  final String userId;
+
 
   @override
   Widget build(BuildContext context) {
+    TextTheme txtTheme = Theme.of(context).textTheme;
+
     return Container(
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(

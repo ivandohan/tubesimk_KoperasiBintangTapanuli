@@ -9,6 +9,9 @@ class AuthFactory extends GetxController {
   static AuthFactory instance = Get.find();
 
   late Rx<User?> _user;
+
+  get firebaseUser => _user;
+
   FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
@@ -28,7 +31,7 @@ class AuthFactory extends GetxController {
     }
   }
 
-  Future<void> register(String email, String password) async {
+  void register(String name, String email, String password) async {
     try {
       await auth.createUserWithEmailAndPassword(
           email: email, password: password);
@@ -92,7 +95,7 @@ class AuthFactory extends GetxController {
       verificationId: verificationId,
       smsCode: smsCode,
     )).whenComplete(() =>
-      Get.to(() => const DashboardScreen()));
+      Get.to(() => DashboardScreen()));
   }
 
   void exceptionSnackbar(BuildContext context, String text) {

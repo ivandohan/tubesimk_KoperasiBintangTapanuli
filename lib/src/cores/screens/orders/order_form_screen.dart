@@ -3,9 +3,10 @@ import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_webservice/src/places.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/constants/colors.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/station_controller.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/location_factory.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/order_payment_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/order_process_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/widgets/order_form_appbar.dart';
 
@@ -26,20 +27,34 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
   late var selectedLocation = widget.args["location"];
   late String selectedService =
       widget.args["service"] != "" ? widget.args["service"] : "Penumpang";
-  String selectedStation = "Tiga";
-  String selectedNearStation = "Dua";
+  String selectedStation = "Loket KBT Medan";
+  String selectedNearStation = "Loket KBT Siantar";
   String selectedPayment = "Dana";
 
-  final List stationList = ["Satu", "Dua", "Tiga", "Empat"];
   final List paymentList = ["Dana", "Ovo", "BNI", "BCA"];
   final List serviceList = ["Penumpang", "Barang Bagasi", "Titip Berkas"];
 
+  final List stationList = [
+    "Loket KBT Medan",
+    "Loket KBT Siantar",
+    "Loket KBT Porsea",
+    "Loket KBT Siborong-borong"
+  ];
+
   final TextEditingController _locationC = TextEditingController();
   final TextEditingController _phoneC = TextEditingController();
+  final stC = Get.put(StationController());
 
   int stage = 0;
-
   int count = 1;
+
+
+
+  @override
+  void initState(){
+    print("STTTTTTTTAAAAAAAAAAAAAADDDDDDDDDDDDD");
+    super.initState();
+  }
 
   void _showDatePicker() {
     showDatePicker(
@@ -106,7 +121,8 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.red.withOpacity(0.2),
+              color: tCardBgColor,
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Center(
               child: Text(
@@ -202,7 +218,8 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.red.withOpacity(0.2),
+              color: tCardBgColor,
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Center(
               child: Text(
@@ -330,7 +347,8 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.red.withOpacity(0.2),
+              color: tCardBgColor,
+              borderRadius: BorderRadius.circular(10),
             ),
             child: Center(
               child: Text(
@@ -344,7 +362,7 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
             padding: const EdgeInsets.all(10),
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Colors.red.withOpacity(0.2),
+              color: Colors.orange.withOpacity(0.2),
               border: Border.all(color: Colors.black),
               borderRadius: BorderRadius.circular(5)
             ),
@@ -519,41 +537,40 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
   }
 
   PickStationMethod(String target) {
-    return Container(
-      padding: const EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        color: Colors.grey.withOpacity(0.2),
-      ),
-      width: double.infinity,
-      height: 40,
-      child: Center(
-        child: DropdownButton<String>(
-          isExpanded: true,
-          value: target == "start" ? selectedStation : selectedNearStation,
-          onChanged: (value) {
-            setState(() {
-              if (target == "start") {
-                selectedStation = value!;
-              } else {
-                selectedNearStation = value!;
-              }
-            });
-          },
-          items: stationList
-              .map<DropdownMenuItem<String>>(
-                  (value) => DropdownMenuItem<String>(
+            return Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.grey.withOpacity(0.2),
+              ),
+              width: double.infinity,
+              height: 40,
+              child: Center(
+                child: DropdownButton<String>(
+                  isExpanded: true,
+                  value: target == "start" ? selectedStation : selectedNearStation,
+                  onChanged: (value) {
+                    setState(() {
+                      if (target == "start") {
+                        selectedStation = value!;
+                      } else {
+                        selectedNearStation = value!;
+                      }
+                    });
+                  },
+                  items: stationList.map<DropdownMenuItem<String>>(
+                          (value) => DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
                       ))
-              .toList(),
+                      .toList(),
 
-          // add extra sugar..
-          icon: Icon(Icons.arrow_drop_down),
-          iconSize: 20,
-          underline: SizedBox(),
-        ),
-      ),
-    );
+                  // add extra sugar..
+                  icon: Icon(Icons.arrow_drop_down),
+                  iconSize: 20,
+                  underline: SizedBox(),
+                ),
+              ),
+            );
   }
 
   PickLocationMethod(Size screenSize, BuildContext context) {

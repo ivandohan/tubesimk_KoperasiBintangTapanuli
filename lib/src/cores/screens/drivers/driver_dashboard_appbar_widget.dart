@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/constants/colors.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/constants/image_strings.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/auth_factory.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/drivers/driver_dashboard_screen.dart';
 
 
-class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const DashboardAppBar({
+class DriverDashboardAppbarWidget extends StatelessWidget implements PreferredSizeWidget {
+  const DriverDashboardAppbarWidget({
     super.key,
+    required this.title,
   });
+
+  final String title;
 
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       leading: IconButton(
-        onPressed: () => Get.to(() => const DriverDashboardScreen()),
+        onPressed: () {},
         icon: const Icon(Icons.menu),
         color: Colors.black,
       ),
       title: Text(
-        tDashboardAppbarTitle,
+        title,
         style: Theme.of(context).textTheme.headline4,
       ),
       centerTitle: true,
@@ -32,7 +31,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
         Container(
           margin: const EdgeInsets.only(top: 7, right: 20),
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10),
           ),
           child: IconButton(
             onPressed: () {

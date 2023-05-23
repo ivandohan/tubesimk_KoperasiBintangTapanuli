@@ -47,7 +47,7 @@ const String tOtpSubTitle = "Verifikasi";
 const String tOtpMessage = "Masukkan kode yang kamu terima dari SMS.";
 
 const String tDashboardAppbarTitle = "Koperasi Bintang Tapanuli";
-const String tDashboardTitle = "Horas, D. Ohann!";
+const String tDashboardTitle = "Horas, ";
 const String tDashboardHeading = "Mau ke mana hari ini?";
 const String tDashboardSearch = "Cari lokasi...";
 const String tDashboardBannerText = "Layanan Kami";

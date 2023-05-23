@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/auth_factory.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/location_factory.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/dashboard_screen.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/login/login_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/welcome/welcome_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/utils/theme/theme.dart';
 
@@ -32,7 +34,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       defaultTransition: Transition.rightToLeftWithFade,
       transitionDuration: const Duration(milliseconds: 500),
-      home: const WelcomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
