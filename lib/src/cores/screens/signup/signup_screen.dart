@@ -26,7 +26,7 @@ class SignUpScreen extends StatelessWidget {
                   title: tRegisterTitle,
                   subTitle: tRegisterSubTitle,
                 ),
-                const SignUpFormWidget(),
+                SignUpFormWidget(),
                 FormFooterWidget(
                   buttonLabel: "Daftar dengan akun google",
                   textSpan1: "Sudah punya akun? ",

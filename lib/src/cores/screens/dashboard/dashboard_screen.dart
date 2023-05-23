@@ -6,6 +6,10 @@ import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/user_profile_controller.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/models/user_model.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/widgets/dashboard_greeter_widget.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/widgets/dashboard_navbar.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/drivers/driver_dashboard_screen.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/forget_pw/otp/otp_screen.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/history/user/user_payment_history.dart';
 import 'widgets/dashboard_appbar.dart';
 import 'widgets/dashboard_banners.dart';
 import 'widgets/dashboard_search.dart';
@@ -21,6 +25,8 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   var args = Get.arguments ?? "";
 
+  final GlobalKey<ScaffoldState> _key = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     final txtTheme = Theme.of(context).textTheme;
@@ -28,6 +34,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     return SafeArea(
       child: Scaffold(
+        key: _key,
+        drawer: DashboardNavbar(),
+        floatingActionButton: Builder(
+          builder: (context) {
+            return FloatingActionButton(
+              onPressed: () =>
+                  Get.to(() => DriverDashboardScreen()), // <-- Opens drawer.
+            );
+          },
+        ),
         appBar: const DashboardAppBar(),
         body: SingleChildScrollView(
           child: Container(

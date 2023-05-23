@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/car_controller.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/user_profile_controller.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/models/car_model.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/order_payment_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/widgets/order_form_appbar.dart';
 
@@ -38,14 +36,12 @@ class _OrderProcessScreenState extends State<OrderProcessScreen> {
 
   void manage() {
     String va = Random().nextInt(pow(2, 32).toInt()).toString();
-    Future.delayed(Duration(seconds: 5), () => Get.to(() => OrderPaymentScreen(), arguments: {...widget.args, "va": va, "driverName": "user.driverName", "carNum": "user.id"}));
+    Future.delayed(Duration(seconds: 5), () => Get.to(() => OrderPaymentScreen(), arguments: {...widget.args, "va": va, "driverName": "Maiki Salamun", "carNum": user.id}));
   }
 
 
   @override
   Widget build(BuildContext context) {
-    print("LASDKJNNNNNNNNADGLIBHOGHBOUSDGBOSDG");
-    print(user.driverName);
 
     return SafeArea(
       child: Scaffold(

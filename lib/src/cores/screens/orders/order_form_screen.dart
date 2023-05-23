@@ -41,6 +41,13 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
     "Loket KBT Siborong-borong"
   ];
 
+  final List classList = [
+    "Eksekutif",
+    "Reguler",
+  ];
+
+  var selectedClass = "Eksekutif";
+
   final TextEditingController _locationC = TextEditingController();
   final TextEditingController _phoneC = TextEditingController();
   final stC = Get.put(StationController());
@@ -86,6 +93,7 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
       "payment": selectedPayment,
       "service": selectedService,
       "phone": _phoneC.text,
+      "class": selectedClass,
     };
 
     print("ARRRRRRRRRRRRRRRGGGGGGGGGGGSSSSSSSSSSS : ${widget.args["service"]}");
@@ -293,6 +301,28 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
           ),
           PickStationMethod("nearby"),
 
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Jumlah Penumpang",
+            style: txtTheme.headline3,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          PeopleCount(screenSize),
+
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Kelas Mobil",
+            style: txtTheme.headline3,
+          ),
+          const SizedBox(height: 10,),
+          PickCarClass(),
+
           // Tombol Konfirmasi
           const SizedBox(
             height: 20,
@@ -389,18 +419,7 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
           ),
           PickPaymentMethod(),
           // Jumlah Penumpang
-          const SizedBox(
-            height: 20,
-          ),
 
-          Text(
-            "Jumlah Penumpang",
-            style: txtTheme.headline3,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          PeopleCount(screenSize),
 
           const SizedBox(height: 20,),
           Text(
@@ -451,7 +470,50 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
                 const SizedBox(width: 10,),
                 Expanded(
                   child: ElevatedButton(
-                    onPressed: () => Get.to(() => OrderProcessScreen(), arguments: args),
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (context) {
+                          return Container(
+                            height: 250,
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Konfirmasi kembali",
+                                  style: txtTheme.headline4,
+                                ),
+                                const SizedBox(height: 25,),
+                                Text(
+                                  "Pastikan kembali semua data-data yang kamu"
+                                      " masukkan sudah tepat untuk melanjutkan proses. "
+                                      "Lanjutkan proses?",
+                                  textAlign: TextAlign.center,
+                                ),
+                                const SizedBox(height: 45,),
+                                Row(
+                                  children: [
+                                    Expanded(
+                                      child: OutlinedButton(
+                                        onPressed: () => Get.back(),
+                                        child: Text("Kembali"),
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10,),
+                                    Expanded(
+                                      child: ElevatedButton(
+                                        onPressed: () => Get.to(() => OrderProcessScreen(), arguments: args),
+                                        child: Text("Proses"),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                      );
+                    },
                     child: const Text("Bayar"),
                   ),
                 ),
@@ -491,6 +553,40 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
                         value: value,
                         child: Text(value),
                       ))
+              .toList(),
+
+          // add extra sugar..
+          icon: Icon(Icons.arrow_drop_down),
+          iconSize: 20,
+          underline: SizedBox(),
+        ),
+      ),
+    );
+  }
+
+  PickCarClass() {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.grey.withOpacity(0.2),
+      ),
+      width: double.infinity,
+      height: 40,
+      child: Center(
+        child: DropdownButton<String>(
+          isExpanded: true,
+          value: selectedClass,
+          onChanged: (value){
+            setState(() {
+              selectedClass = value!;
+            });
+          },
+          items: classList
+              .map<DropdownMenuItem<String>>(
+                  (value) => DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              ))
               .toList(),
 
           // add extra sugar..

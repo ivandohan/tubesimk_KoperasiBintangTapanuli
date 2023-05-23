@@ -26,7 +26,7 @@ class WelcomeScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
+        backgroundColor: Colors.white,
         body: Stack(
           children: [
             TFadeInAnimation(

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/dashboard_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/login/login_screen.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/on_boarding/on_boarding_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/signup/signup_screen.dart';
 
 class AuthFactory extends GetxController {
@@ -25,7 +26,7 @@ class AuthFactory extends GetxController {
   _initialScreen(User? user) {
     if (user == null) {
       print("Login Page");
-      Get.offAll(() => LoginScreen());
+      Get.offAll(() => OnBoardingScreen());
     } else {
       Get.offAll(() => DashboardScreen());
     }

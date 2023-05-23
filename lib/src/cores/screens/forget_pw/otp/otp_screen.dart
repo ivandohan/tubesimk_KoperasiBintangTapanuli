@@ -7,9 +7,8 @@ import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/auth_factory.
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/dashboard_screen.dart';
 
 class OTPScreen extends StatelessWidget {
-  const OTPScreen({super.key, required this.verId});
+  const OTPScreen({super.key});
 
-  final String verId;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +56,6 @@ class OTPScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () async {
-                    AuthFactory.instance.verifyOTP(verId, smsCode);
                   },
                   child: const Text("Lanjut"),
                 ),

@@ -11,7 +11,7 @@ const String tSignInWithGoogle = "Sign-In with Google";
 const String tAppName = "Dohan";
 const String tAppTagLine = "Learn to Code. \nFree for Everyone.";
 
-const String tOnBoardingTitle1 = "Selamat Datang, Bossku!";
+const String tOnBoardingTitle1 = "Selamat Datang";
 const String tOnBoardingTitle2 = "Perjalanan Nyaman dan Aman";
 const String tOnBoardingTitle3 = "Pesan Tiket dengan Cepat";
 
@@ -23,20 +23,20 @@ const tOnBoardingCounter1 = "1/3";
 const tOnBoardingCounter2 = "2/3";
 const tOnBoardingCounter3 = "3/3";
 
-const String tWelcomeTitle = "Masuk dengan Akun Kamu";
-const String tWelcomeSubTitle = "Agar mempermudah kamu kedepannya, silahkan masuk dengan kamu dulu ya. Kalau belum punya, silahkan daftar akun dulu.";
+const String tWelcomeTitle = "Masuk dengan Akun Anda";
+const String tWelcomeSubTitle = "Agar mempermudah Anda kedepannya, silahkan masuk dengan akun Anda terlebih dahulu.";
 
-const String tLoginTitle = "Jumpa Lagi, Bossku";
-const String tLoginSubTitle = "Isi formnya sesuai akun kamu yang terdaftar ya.";
-const String tRememberMe = "Remember me?";
-const String tDontHaveAccount = "Dont have an account?";
+const String tLoginTitle = "Masuk Aplikasi";
+const String tLoginSubTitle = "Isi form dengan informasi akun terdaftar.";
+const String tRememberMe = "Ingat di perangkat ini?";
+const String tDontHaveAccount = "Belum punya akun?";
 
-const String tRegisterTitle = "Daftark Akun Kamu";
+const String tRegisterTitle = "Daftar Akun Anda";
 const String tRegisterSubTitle = "Dapatkan kemudahan saat mengakses aplikasi.";
-const String tAlreadyHaveAccount = "Already have an account?";
+const String tAlreadyHaveAccount = "Sudah punya akun?";
 
-const String tForgetPwTitle = "Verifikasi dulu Bossku";
-const String tForgetPwSubTitle = "Pilih salah satu dari opsi berikut ya.";
+const String tForgetPwTitle = "Verifikasi Nomor HP";
+const String tForgetPwSubTitle = "Pilih salah satu dari opsi berikut.";
 const String tForgetPwSubTitle2 = "Masukkan nomor telepon yang terdaftar.";
 const String tResetViaPhone = "Nomor telepon terdaftar.";
 
@@ -44,7 +44,7 @@ const String tForgetPhoneSubtitle = "Enter your registered phone number to recei
 
 const String tOtpTitle = "KO\nDE";
 const String tOtpSubTitle = "Verifikasi";
-const String tOtpMessage = "Masukkan kode yang kamu terima dari SMS.";
+const String tOtpMessage = "Masukkan kode yang anda terima dari email.";
 
 const String tDashboardAppbarTitle = "Koperasi Bintang Tapanuli";
 const String tDashboardTitle = "Horas, ";

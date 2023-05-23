@@ -12,8 +12,8 @@ class DashboardTopPartModel {
   });
 
   static List<DashboardTopPartModel> list = [
-    DashboardTopPartModel(title: "Koperasi Bintang Tapanuli", heading: "Lihat Selengkapnya", subHeading: "Tentang kami", onPress: null),
     DashboardTopPartModel(title: "Penjemputan dan Keberangkatan", heading: "Lihat Selengkapnya", subHeading: "Aturan Trip", onPress: null),
+    DashboardTopPartModel(title: "Koperasi Bintang Tapanuli", heading: "Lihat Selengkapnya", subHeading: "Tentang kami", onPress: null),
     DashboardTopPartModel(title: "Loket di Setiap Kota", heading: "Lihat Selengkapnya", subHeading: "Posisi Loket", onPress: null),
     DashboardTopPartModel(title: "Beban Maksimal Barang Bagasi", heading: "Lihat Selengkapnya", subHeading: "Barang Bagasi", onPress: null),
   ];

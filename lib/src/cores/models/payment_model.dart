@@ -14,7 +14,7 @@ class PaymentModel {
   final String va;
   final String firstStation;
   final String phone;
-
+  final String date;
 
   PaymentModel({
     this.id,
@@ -32,28 +32,23 @@ class PaymentModel {
     required this.service,
     required this.isComplete,
     required this.paidOn,
-
+    required this.date
   });
 
   toJson() {
     return {
-      "car": {
-        "carNumber": carNum,
-        "driverNum": driverName,
-      },
-      "payment": {
-        "cost": cost,
-        "deadline": deadline,
-        "isComplete": isComplete,
-        "method": paymentMethod,
-        "paidOn": paidOn,
-        "va": va
-      },
-      "places": {
-        "destination": destination,
-        "stationDestination": stationDestination,
-        "firstStation": firstStation,
-      },
+      "carNumber": carNum,
+      "driverName": driverName,
+      "cost": cost,
+      "deadline": deadline,
+      "isComplete": isComplete,
+      "method": paymentMethod,
+      "paidOn": paidOn,
+      "va": va,
+      "date": date,
+      "destination": destination,
+      "stationDestination": stationDestination,
+      "firstStation": firstStation,
       "service": service,
       "userId": userId,
       "userPhone": phone,

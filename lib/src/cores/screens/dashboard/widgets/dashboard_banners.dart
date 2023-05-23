@@ -31,10 +31,11 @@ class DashboardBannersWidget extends StatelessWidget {
             child: GestureDetector(
               onTap: () => Get.to(() => OrderIntroScreen(title: "Penumpang",)),
               child: Container(
+                height: 197,
                 decoration: BoxDecoration(
                   border: Border.all(
                     width: 1,
-                    color: Colors.black26,
+                    color: Colors.black,
                   ),
                   borderRadius: BorderRadius.circular(10),
                   color: tCardBgColor,
@@ -42,21 +43,22 @@ class DashboardBannersWidget extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         Flexible(
                           child: Icon(Icons.card_travel),
                         ),
-                        Flexible(
-                          child: Image(
-                            image: AssetImage(tDashboardBannerImage1),
-                            height: 128,
-                          ),
-                        ),
+                        // Flexible(
+                        //   child: Image(
+                        //     image: AssetImage(tDashboardBannerImage1),
+                        //     height: 128,
+                        //   ),
+                        // ),
                       ],
                     ),
                     const SizedBox(
@@ -67,12 +69,7 @@ class DashboardBannersWidget extends StatelessWidget {
                       style: txtTheme.headline4,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                    ),
-                    Text(
-                      tDashboardBannerSubtitle1,
-                      style: txtTheme.bodyText2,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 ),
@@ -92,38 +89,34 @@ class DashboardBannersWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(
                         width: 1,
-                        color: Colors.black26,
+                        color: Colors.black,
                       ),
                       color: tCardBgColor,
                     ),
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Flexible(
-                              child: Icon(Icons.backpack),
+                              child: Icon(Icons.backpack, size: 20,),
                             ),
-                            Flexible(
-                              child: Image(
-                                image: AssetImage(tDashboardBannerImage2),
-                                height: 40,
-                              ),
-                            ),
+                            // Flexible(
+                            //   child: Image(
+                            //     image: AssetImage(tDashboardBannerImage2),
+                            //     height: 50,
+                            //   ),
+                            // ),
                           ],
                         ),
+                        const SizedBox(height: 10,),
                         Text(
                           tDashboardBannerTitle2,
                           style: txtTheme.headline4,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Text(
-                          tDashboardBannerSubtitle2,
-                          style: txtTheme.bodyText2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],
@@ -141,37 +134,33 @@ class DashboardBannersWidget extends StatelessWidget {
                       color: tCardBgColor,
                       border: Border.all(
                         width: 1,
-                        color: Colors.black26,
+                        color: Colors.black,
                       ),
                     ),
                     padding:
                         const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                     child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             Flexible(
-                              child: Icon(Icons.document_scanner),
+                              child: Icon(Icons.document_scanner, size: 20,),
                             ),
-                            Flexible(
-                              child: Image(
-                                image: AssetImage(tDashboardBannerImage2),
-                                height: 40,
-                              ),
-                            ),
+                            // Flexible(
+                            //   child: Image(
+                            //     image: AssetImage(tDashboardBannerImage2),
+                            //     height: 50,
+                            //   ),
+                            // ),
                           ],
                         ),
+                        const SizedBox(height: 10,),
                         Text(
                           tDashboardBannerTitle3,
                           style: txtTheme.headline4,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Text(
-                          tDashboardBannerSubtitle3,
-                          style: txtTheme.bodyText2,
                           overflow: TextOverflow.ellipsis,
                         ),
                       ],

@@ -3,13 +3,15 @@ import 'package:get/get.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/login_controller.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/auth_factory.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/dashboard_screen.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/field_validator.dart';
 
 
 class LoginForm extends StatelessWidget {
-  const LoginForm({
+  LoginForm({
     super.key,
   });
+
+  final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +20,18 @@ class LoginForm extends StatelessWidget {
 
     var lc = Get.put(LoginController());
 
+
     return Form(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           TextFormField(
+            validator: (value) {
+              FieldValidator.instance.emailFieldValidator(value!);
+            },
             controller: ec,
             decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.phone),
+              prefixIcon: Icon(Icons.email),
               labelText: "Email",
               hintText: "contoh@contoh",
             ),
@@ -34,6 +40,9 @@ class LoginForm extends StatelessWidget {
             height: tFormHeight - 20,
           ),
           TextFormField(
+            validator: (value) {
+              FieldValidator.instance.passwordFieldValidator(value!);
+            },
             controller: pc,
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.key),

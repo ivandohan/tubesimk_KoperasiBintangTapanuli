@@ -12,13 +12,6 @@ class PaymentFactory extends GetxController {
     await _db
         .collection("Orders")
         .add(pm.toJson())
-        .whenComplete(() => Get.snackbar(
-              "Sukses!",
-              "Order berhasil dibuat.",
-              snackPosition: SnackPosition.BOTTOM,
-              backgroundColor: Colors.black87,
-              colorText: Colors.white,
-            ))
         .catchError((err, _) {
       Get.snackbar(
         "Gagal!",

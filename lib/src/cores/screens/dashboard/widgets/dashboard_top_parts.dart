@@ -36,8 +36,7 @@ class DashboardTopPartsWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: tCardBgColor,
                 border: Border.all(
-                  width: 0.5,
-                  color: Colors.black26.withOpacity(0.2),
+                  color: Colors.black,
                 ),
               ),
               padding: const EdgeInsets.all(10),

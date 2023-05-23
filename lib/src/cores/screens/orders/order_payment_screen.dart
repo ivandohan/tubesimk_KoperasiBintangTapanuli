@@ -48,14 +48,53 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
       isComplete: isSuccess,
       paidOn: DateFormat("EEEE, d MMMM yyyy").format(DateTime.now()),
       phone: args["phone"],
+      date: args["date"],
     );
 
     pC.addOrder(paymentModel).whenComplete(() {
-      Future.delayed(
-          Duration(seconds: 2),
-          () => Get.offAll(() => DashboardScreen(),
-              arguments: "Terima kasih sudah melakukan order"));
-    });
+      if(isSuccess) {
+      showModalBottomSheet(
+          context: context,
+          builder: (context) {
+            return Container(
+              height: 250,
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Text(
+                    "Pembayaran Diterima",
+                    style: Theme.of(context).textTheme.headline4,
+                  ),
+                  const SizedBox(height: 25,),
+                  Text(
+                    "Pembayaran anda sudah kami terima. Terima kasih sudah mempercayakan perjalanan anda"
+                        " kepada kami.",
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 45,),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton(
+                          onPressed: () => Get.offAll(() => DashboardScreen()),
+                          child: Text("Kembali"),
+                        ),
+                      ),
+                      const SizedBox(width: 10,),
+                      Expanded(
+                        child: ElevatedButton(
+                          onPressed: () => Get.offAll(() => DashboardScreen()),
+                          child: Text("Unduh Tiket"),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          }
+      );
+    }});
   }
 
   @override
@@ -338,15 +377,26 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
                             child: ElevatedButton(
                               onPressed: () {
                                 setState(() {
+                                  checkPaymentStatus(user.id);
+                                });
+                              },
+                              child: Text("Kembali ke Halaman Utama"),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          SizedBox(
+                            width: double.infinity,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                setState(() {
                                   isSuccess = !isSuccess;
                                   checkPaymentStatus(user.id);
                                 });
                               },
                               child: Text("Refresh"),
                             ),
-                          ),
-                          const SizedBox(
-                            height: 10,
                           ),
                           SizedBox(
                             width: double.infinity,

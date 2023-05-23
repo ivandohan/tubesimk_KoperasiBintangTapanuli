@@ -25,7 +25,7 @@ class LoginScreen extends StatelessWidget {
                   title: tLoginTitle,
                   subTitle: tLoginSubTitle,
                 ),
-                const LoginForm(),
+                LoginForm(),
                 FormFooterWidget(
                   buttonLabel: "Masuk dengan akun Google",
                   textSpan1: "Belum punya akun? ",
