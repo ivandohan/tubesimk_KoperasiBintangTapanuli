@@ -36,14 +36,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
       child: Scaffold(
         key: _key,
         drawer: DashboardNavbar(),
-        floatingActionButton: Builder(
-          builder: (context) {
-            return FloatingActionButton(
-              onPressed: () =>
-                  Get.to(() => DriverDashboardScreen()), // <-- Opens drawer.
-            );
-          },
-        ),
+        // floatingActionButton: Builder(
+        //   builder: (context) {
+        //     return FloatingActionButton(
+        //       onPressed: () =>
+        //           Get.to(() => DriverDashboardScreen()), // <-- Opens drawer.
+        //     );
+        //   },
+        // ),
         appBar: const DashboardAppBar(),
         body: SingleChildScrollView(
           child: Container(

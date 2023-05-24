@@ -27,11 +27,7 @@ class FormHeaderWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: crossAxisAlignment,
       children: [
-        Image(
-          image: AssetImage(image),
-          height: size.height * imageHeight,
-        ),
-        const SizedBox(height: 10,),
+        const SizedBox(height: 40,),
         Text(
           title,
           style: Theme.of(context).textTheme.headline1,

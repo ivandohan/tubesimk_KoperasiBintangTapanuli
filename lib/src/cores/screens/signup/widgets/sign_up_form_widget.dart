@@ -61,7 +61,12 @@ class SignUpFormWidget extends StatelessWidget {
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.key),
                   labelText: "Password",
-                  hintText: "Masukkan password anda"),
+                  hintText: "Masukkan password anda",
+                suffixIcon: IconButton(
+                  onPressed: null,
+                  icon: Icon(Icons.remove_red_eye_sharp),
+                ),
+              ),
             ),
             const SizedBox(
               height: tDefaultSize - 20,
@@ -71,7 +76,11 @@ class SignUpFormWidget extends StatelessWidget {
               decoration: const InputDecoration(
                   prefixIcon: Icon(Icons.key),
                   labelText: "Konfirmasi password",
-                  hintText: "Ketik ulang password anda"),
+                  hintText: "Ketik ulang password anda",
+              suffixIcon: IconButton(
+                onPressed: null,
+                icon: Icon(Icons.remove_red_eye_sharp),
+              ),),
             ),
             const SizedBox(
               height: tDefaultSize - 10,

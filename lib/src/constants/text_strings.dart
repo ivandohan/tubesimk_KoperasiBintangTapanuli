@@ -24,7 +24,7 @@ const tOnBoardingCounter2 = "2/3";
 const tOnBoardingCounter3 = "3/3";
 
 const String tWelcomeTitle = "Masuk dengan Akun Anda";
-const String tWelcomeSubTitle = "Agar mempermudah Anda kedepannya, silahkan masuk dengan akun Anda terlebih dahulu.";
+const String tWelcomeSubTitle = "Silahkan masuk dengan akun Anda terlebih dahulu.";
 
 const String tLoginTitle = "Masuk Aplikasi";
 const String tLoginSubTitle = "Isi form dengan informasi akun terdaftar.";

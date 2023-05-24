@@ -56,12 +56,7 @@ class AuthFactory extends GetxController {
           "Login Gagal...",
           style: TextStyle(color: Colors.white),
         ),
-        messageText: Text(
-          e.toString(),
-          style: const TextStyle(
-            color: Colors.white,
-          ),
-        ),
+        messageText: Text("Kata sandi atau email tidak sesuai", style: TextStyle(color: Colors.white),),
       );
     }
   }

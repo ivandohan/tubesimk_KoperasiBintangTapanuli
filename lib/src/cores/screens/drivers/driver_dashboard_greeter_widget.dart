@@ -18,7 +18,7 @@ class DriverDashboardGreeterWidget extends StatelessWidget {
           style: txtTheme.bodyText2,
         ),
         Text(
-          "Sudah siap untuk pergi?",
+          "Sudah siap untuk bekerja?",
           style: txtTheme.headline2,
         ),
       ],
