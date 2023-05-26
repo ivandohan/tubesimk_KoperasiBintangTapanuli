@@ -23,8 +23,8 @@ const tOnBoardingCounter1 = "1/3";
 const tOnBoardingCounter2 = "2/3";
 const tOnBoardingCounter3 = "3/3";
 
-const String tWelcomeTitle = "Masuk dengan Akun Anda";
-const String tWelcomeSubTitle = "Silahkan masuk dengan akun Anda terlebih dahulu.";
+const String tWelcomeTitle = "Pesan Tiket dengan Cepat";
+const String tWelcomeSubTitle = "Anda dapat langsung memesan tiket dengan menekan tombol Pesan Tiket";
 
 const String tLoginTitle = "Masuk Aplikasi";
 const String tLoginSubTitle = "Isi form dengan informasi akun terdaftar.";
@@ -47,7 +47,7 @@ const String tOtpSubTitle = "Verifikasi";
 const String tOtpMessage = "Masukkan kode yang anda terima dari email.";
 
 const String tDashboardAppbarTitle = "Koperasi Bintang Tapanuli";
-const String tDashboardTitle = "Horas, ";
+const String tDashboardTitle = "Horas!";
 const String tDashboardHeading = "Mau ke mana hari ini?";
 const String tDashboardSearch = "Cari lokasi...";
 const String tDashboardBannerText = "Layanan Kami";

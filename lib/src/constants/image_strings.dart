@@ -6,6 +6,11 @@ const String tOnBoardingImage1 = "assets/images/on_boarding_images/w1.jpg";
 const String tOnBoardingImage2 = "assets/images/on_boarding_images/w2.jpg";
 const String tOnBoardingImage3 = "assets/images/on_boarding_images/w3.jpg";
 
+const String tOBOld1 = "assets/images/on_boarding_images/onb2-min.png";
+const String tOBOld2 = "assets/images/on_boarding_images/onb3-min.jpeg";
+const String tOBOld3 = "assets/images/on_boarding_images/onb4-min.png";
+
+
 const String tWelcomeScreenImage = "assets/images/welcome_images/wl.jpg";
 
 const String tGoogleLogoImage = "assets/logos/google.png";

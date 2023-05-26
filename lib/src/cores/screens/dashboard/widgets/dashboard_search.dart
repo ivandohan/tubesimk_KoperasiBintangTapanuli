@@ -8,10 +8,7 @@ import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/order_
 class DashboardSearchWidget extends StatelessWidget {
   DashboardSearchWidget({
     super.key,
-    required this.userId
   });
-
-  final String userId;
 
   TextEditingController _controller = TextEditingController();
 

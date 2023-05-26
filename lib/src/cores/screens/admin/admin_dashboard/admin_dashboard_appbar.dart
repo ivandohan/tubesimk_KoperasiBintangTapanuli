@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/drivers/driver_dashboard_screen.dart';
 
-class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const DashboardAppBar({
+class AdminDashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const AdminDashboardAppBar({
     super.key,
   });
 
@@ -13,7 +11,7 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       leading: Builder(
         builder: (context) => // Ensure Scaffold is in context
-            IconButton(
+        IconButton(
           icon: Icon(Icons.menu, color: Colors.black,),
           onPressed: () => Scaffold.of(context).openDrawer(),
         ),
@@ -32,10 +30,8 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           child: IconButton(
-            onPressed: () {
-              Get.to(() => const DriverDashboardScreen());
-            },
-            icon: Icon(
+            onPressed: () {},
+            icon: const Icon(
               Icons.dashboard_outlined,
               color: Colors.black,
             ),

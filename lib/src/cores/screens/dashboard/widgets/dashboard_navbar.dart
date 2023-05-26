@@ -43,29 +43,6 @@ class DashboardNavbar extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.person_outline_rounded,
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Profil",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 5,),
-              Divider(
-                color: Colors.black,
-              ),
-              const SizedBox(
-                height: 10,
-              ),
               GestureDetector(
                 onTap: () => Get.to(() => OrderFormScreen(), arguments: {'service': "", 'location': ""}),
                 child: Row(

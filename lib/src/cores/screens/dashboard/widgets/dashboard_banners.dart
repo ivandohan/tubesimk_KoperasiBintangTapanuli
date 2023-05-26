@@ -9,11 +9,7 @@ import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/order_
 class DashboardBannersWidget extends StatelessWidget {
   const DashboardBannersWidget({
     super.key,
-    required this.userId,
   });
-
-  final String userId;
-
 
   @override
   Widget build(BuildContext context) {

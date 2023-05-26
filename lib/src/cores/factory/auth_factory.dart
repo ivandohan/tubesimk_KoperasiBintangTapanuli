@@ -15,13 +15,13 @@ class AuthFactory extends GetxController {
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  @override
-  void onReady() {
-    super.onReady();
-    _user = Rx<User?>(auth.currentUser);
-    _user.bindStream(auth.userChanges());
-    ever(_user, _initialScreen);
-  }
+  // @override
+  // void onReady() {
+  //   super.onReady();
+  //   _user = Rx<User?>(auth.currentUser);
+  //   _user.bindStream(auth.userChanges());
+  //   ever(_user, _initialScreen);
+  // }
 
   _initialScreen(User? user) {
     if (user == null) {

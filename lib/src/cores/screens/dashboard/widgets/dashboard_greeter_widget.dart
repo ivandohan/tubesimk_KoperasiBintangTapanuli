@@ -4,10 +4,7 @@ import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart
 class DashboardGreeterWidget extends StatelessWidget {
   DashboardGreeterWidget({
     super.key,
-    required this.name,
   });
-
-  final String name;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +13,7 @@ class DashboardGreeterWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "$tDashboardTitle $name!",
+          tDashboardTitle,
           style: txtTheme.bodyText2,
         ),
         Text(

@@ -7,14 +7,13 @@ import 'package:tubesimk_koperasibintangtapanuli/src/cores/models/dashboard_top_
 class DashboardTopPartsWidget extends StatelessWidget {
   const DashboardTopPartsWidget({
     super.key,
-    required this.txtTheme,
   });
 
-  final TextTheme txtTheme;
 
   @override
   Widget build(BuildContext context) {
     final list = DashboardTopPartModel.list;
+    final txtTheme = Theme.of(context).textTheme;
 
     return Container(
       padding: const EdgeInsets.all(5),

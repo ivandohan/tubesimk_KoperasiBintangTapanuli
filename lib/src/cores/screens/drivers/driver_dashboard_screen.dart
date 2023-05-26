@@ -187,7 +187,7 @@ class DriverDashboardScreen extends StatelessWidget {
                                 .headline4
                                 ?.apply(fontSizeFactor: 1.2),
                           ),
-                          DashboardTopPartsWidget(txtTheme: txtTheme),
+                          DashboardTopPartsWidget(),
                         ],
                       ),
                       const SizedBox(height: 100,),

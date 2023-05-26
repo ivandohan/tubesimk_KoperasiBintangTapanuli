@@ -21,6 +21,9 @@ class OrderFormScreen extends StatefulWidget {
 
 class _OrderFormScreenState extends State<OrderFormScreen> {
   DateTime _date = DateTime.now();
+  
+  DateTime dateTime = DateTime(2022, 12, 24, 5, 30);
+  
   late String formatted = DateFormat("EEEE, d MMMM yyyy").format(_date);
 
   String result = "";
@@ -50,6 +53,9 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
 
   final TextEditingController _locationC = TextEditingController();
   final TextEditingController _phoneC = TextEditingController();
+  final TextEditingController _nameC = TextEditingController();
+  final TextEditingController _weightC = TextEditingController();
+
   final stC = Get.put(StationController());
 
   int stage = 0;
@@ -63,29 +69,15 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
     super.initState();
   }
 
-  void _showDatePicker() {
-    showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(2000),
-      lastDate: DateTime(2025),
-    ).then((value) {
-      if (value != null) {
-        setState(() {
-          _date = value;
-          formatted = DateFormat("EEEE, d MMMM yyyy").format(_date);
-        });
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     var txtTheme = Theme.of(context).textTheme;
     var screenSize = MediaQuery.of(context).size;
+    var formattedDate = "${dateTime.day}-${dateTime.month}-${dateTime.year}";
 
     var paymentProcessArguments = {
-      "date": formatted,
+      "date": formattedDate,
+      "hour": dateTime.hour,
       "station": selectedStation,
       "stationNearby": selectedNearStation,
       "location": selectedLocation,
@@ -94,6 +86,7 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
       "service": selectedService,
       "phone": _phoneC.text,
       "class": selectedClass,
+      "weight": _weightC,
     };
 
     print("ARRRRRRRRRRRRRRRGGGGGGGGGGGSSSSSSSSSSS : ${widget.args["service"]}");
@@ -120,6 +113,7 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
     );
   }
 
+
   firstStage(TextTheme txtTheme, Size screenSize, BuildContext context) {
     return SizedBox(
       width: double.infinity,
@@ -137,6 +131,30 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
                 "Informasi Dasar",
                 style: txtTheme.headline1,
               ),
+            ),
+          ),const SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Nama anda",
+            style: txtTheme.headline3,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: double.infinity,
+            height: 40,
+            decoration: BoxDecoration(
+              color: Colors.grey.withOpacity(0.1),
+            ),
+            child: TextFormField(
+              controller: _nameC,
+              decoration: const InputDecoration(
+                  prefixIcon: Icon(Icons.person),
+                  hintText: "Nama anda",
+                  border: InputBorder.none,
+                  focusedBorder: InputBorder.none),
             ),
           ),
           const SizedBox(
@@ -301,27 +319,68 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
           ),
           PickStationMethod("nearby"),
 
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            "Jumlah Penumpang",
-            style: txtTheme.headline3,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          PeopleCount(screenSize),
+          if(widget.args["service"] == "Penumpang")
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Jumlah Penumpang",
+                style: txtTheme.headline3,
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              PeopleCount(screenSize),
 
-          const SizedBox(
-            height: 20,
+              const SizedBox(
+                height: 20,
+              ),
+              Text(
+                "Kelas Mobil",
+                style: txtTheme.headline3,
+              ),
+              const SizedBox(height: 10,),
+              PickCarClass(),
+            ],
           ),
-          Text(
-            "Kelas Mobil",
-            style: txtTheme.headline3,
-          ),
-          const SizedBox(height: 10,),
-          PickCarClass(),
+
+          if(widget.args["service"] == "Barang Bagasi")
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Berat Barang",
+                  style: txtTheme.headline3,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.1),
+                  ),
+                  child: TextFormField(
+                    controller: _weightC,
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(Icons.backpack),
+                        suffixIcon: Icon(Icons.scale_outlined),
+                        hintText: "Berat barang",
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none),
+                  ),
+                ),
+              ],
+            ),
 
           // Tombol Konfirmasi
           const SizedBox(
@@ -798,39 +857,110 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
   }
 
   PickDateMethod(Size screenSize) {
+    final hours = dateTime.hour.toString().padLeft(2, '0');
+    final minutes = dateTime.minute.toString().padLeft(2, '0');
+
     return Row(
       children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
-          decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.2),
-          ),
-          width: screenSize.width * 0.67,
-          height: 40,
-          child: Text(
-            formatted,
-            // _date.toString(),
-            style: const TextStyle(
-              fontSize: 15,
-            ),
-          ),
-        ),
-        const SizedBox(
-          width: 10,
-        ),
         GestureDetector(
           onTap: () {
-            _showDatePicker();
+            showDatePicker(
+              context: context,
+              initialDate: dateTime,
+              firstDate: DateTime(2003),
+              lastDate: DateTime(2050),
+            ).then((value) {
+              setState(() {
+                final newDateTime = DateTime(
+                  value!.year,
+                  value!.month,
+                  value!.day,
+                  dateTime.hour,
+                  dateTime.minute,
+                );
+
+                dateTime = newDateTime;
+              });
+            });
           },
           child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
             decoration: BoxDecoration(
               color: Colors.grey.withOpacity(0.2),
             ),
-            width: screenSize.width * 0.15,
             height: 40,
-            child: const Icon(Icons.calendar_month_sharp),
+            width: screenSize.width * 0.5,
+            child: Row(
+              children: [
+                Icon(Icons.calendar_month_sharp),
+                SizedBox(width: 10,),
+                Text(
+                  "${dateTime.day}-${dateTime.month}-${dateTime.year}",
+                  // _date.toString(),
+                  style: const TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
+        const SizedBox(width: 10,),
+        GestureDetector(
+          onTap: () {
+            showTimePicker(context: context, initialTime: TimeOfDay.now())
+                .then((value) {
+                  setState(() {
+                    final newDateTime = DateTime(
+                      dateTime.year,
+                      dateTime.month,
+                      dateTime.day,
+                      value!.hour,
+                      value!.minute,
+                    );
+
+                    dateTime = newDateTime;
+                  });
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 6),
+            decoration: BoxDecoration(
+              color: Colors.grey.withOpacity(0.2),
+            ),
+            height: 40,
+            width: screenSize.width * 0.32,
+            child: Row(
+              children: [
+                Icon(Icons.more_time),
+                SizedBox(width: 10,),
+                Text(
+                  "$hours:$minutes",
+                  // _date.toString(),
+                  style: const TextStyle(
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        // const SizedBox(
+        //   width: 10,
+        // ),
+        // GestureDetector(
+        //   onTap: () {
+        //     _showDatePicker();
+        //   },
+        //   child: Container(
+        //     decoration: BoxDecoration(
+        //       color: Colors.grey.withOpacity(0.2),
+        //     ),
+        //     width: screenSize.width * 0.15,
+        //     height: 40,
+        //     child: const Icon(Icons.calendar_month_sharp),
+        //   ),
+        // ),
       ],
     );
   }

@@ -10,6 +10,7 @@ import 'package:tubesimk_koperasibintangtapanuli/src/cores/common_widgets/fade_i
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/common_widgets/fade_in_animation/splash_screen_controller.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/login/login_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/signup/signup_screen.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/splash_controller/splash_initial_route_controller.dart';
 
 
 class WelcomeScreen extends StatelessWidget {
@@ -71,7 +72,7 @@ class WelcomeScreen extends StatelessWidget {
                         Expanded(
                           child: OutlinedButton(
                             onPressed: () => Get.to(() => const LoginScreen()),
-                            child: const Text("MASUK"),
+                            child: const Text("Login Staff"),
                           ),
                         ),
                         const SizedBox(
@@ -79,8 +80,8 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () => Get.to(() => const SignUpScreen()),
-                            child: const Text("DAFTAR AKUN"),
+                            onPressed: () => Get.to(() => const SplashInitialRouteController()),
+                            child: const Text("Pesan Sekarang"),
                           ),
                         ),
                       ],
