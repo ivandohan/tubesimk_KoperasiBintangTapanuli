@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/auth_factory.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/history/user/user_payment_history.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/order_form_screen.dart';
 
 class DashboardNavbar extends StatelessWidget {
-  const DashboardNavbar({super.key});
+  DashboardNavbar({super.key, required this.args});
+
+  var args;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,7 @@ class DashboardNavbar extends StatelessWidget {
                 height: 20,
               ),
               GestureDetector(
-                onTap: () => Get.to(() => UserPaymentHistory()),
+                onTap: () => Get.to(() => UserPaymentHistory(args: args)),
                 child: Row(
                   children: [
                     Icon(
@@ -84,25 +85,25 @@ class DashboardNavbar extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  Icon(
-                    Icons.map_outlined,
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Buka Peta",
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ],
-              ),
+              // const SizedBox(
+              //   height: 20,
+              // ),
+              // Row(
+              //   children: [
+              //     Icon(
+              //       Icons.map_outlined,
+              //       color: Colors.black,
+              //       size: 30,
+              //     ),
+              //     const SizedBox(
+              //       width: 10,
+              //     ),
+              //     Text(
+              //       "Buka Peta",
+              //       style: TextStyle(fontSize: 16),
+              //     ),
+              //   ],
+              // ),
               const SizedBox(height: 10,),
               Divider(
                 color: Colors.black,
@@ -145,28 +146,6 @@ class DashboardNavbar extends StatelessWidget {
               ),
               const SizedBox(
                 height: 75,
-              ),
-              SizedBox(
-                height: 60,
-                child: ElevatedButton(
-                  onPressed: () {AuthFactory.instance.logout();},
-                  style: ElevatedButton.styleFrom(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    )
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const [
-                      Icon(Icons.logout_sharp),
-                      SizedBox(
-                        width: 10,
-                      ),
-                      Text("Keluar"),
-                    ],
-                  ),
-                ),
               ),
             ],
           ),

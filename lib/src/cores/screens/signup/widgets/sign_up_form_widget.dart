@@ -140,9 +140,8 @@ class SignUpFormWidget extends StatelessWidget {
                         onPressed: () async {
                           final user = UserModel(
                               name: nameC.text,
-                              email: emailC.text,
+                              phone: emailC.text,
                               password: pwC.text,
-                              isOnTrip: false,
                               status: "user"
                           );
                           sc.registerUser(user);

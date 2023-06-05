@@ -1,0 +1,58 @@
+{
+  "ready": {
+    "eksekutif": [
+      {
+        "code": "234",
+        "driver": "Maiki Salamun"
+      },
+      {
+        "code": "873",
+        "driver": "D. Ohann"
+      },
+      {
+        "code": "347",
+        "driver": "Vando"
+      },
+      {
+        "code": "990",
+        "driver": "Tuhuk"
+      }
+    ],
+    "reguler": [
+      {
+        "code": "558",
+        "driver": "Ivan Gunakan"
+      },
+      {
+        "code": "898",
+        "driver": "Kemal"
+      },
+      {
+        "code": "978",
+        "driver": "Tukul"
+      },
+      {
+        "code": "332",
+        "driver": "Elon Hus"
+      }
+    ],
+    "paket": [
+      {
+        "code": "836",
+        "driver": "Asep"
+      },
+      {
+        "code": "334",
+        "driver": "Aris"
+      },
+      {
+        "code": "756",
+        "driver": "Socrates"
+      },
+      {
+        "code": "523",
+        "driver": "Udin Kratos"
+      }
+    ]
+  }
+}

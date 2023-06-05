@@ -1,6 +1,8 @@
+import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/car_controller.dart';
@@ -17,26 +19,30 @@ class OrderProcessScreen extends StatefulWidget {
 }
 
 class _OrderProcessScreenState extends State<OrderProcessScreen> {
+  var loginData;
 
-  var user;
+  Future<void> readJson() async {
+    final String response = await rootBundle.loadString('assets/json_files/login_data.json');
+
+    final data = await jsonDecode(response);
+
+    setState(() {
+      loginData = data;
+      print("isLogin ========================= $loginData");
+    });
+  }
 
   @override
   void initState() {
-    final uC = Get.put(CarController());
-    uC.getAllAvailableCar().then((value) {
-      setState(() {
-        user = value;
-      });
+    readJson().whenComplete(() {
+      manage();
     });
-
-    manage();
-
     super.initState();
   }
 
   void manage() {
     String va = Random().nextInt(pow(2, 32).toInt()).toString();
-    Future.delayed(Duration(seconds: 5), () => Get.to(() => OrderPaymentScreen(), arguments: {...widget.args, "va": va, "driverName": "Maiki Salamun", "carNum": user.id}));
+    Future.delayed(Duration(seconds: 5), () => Get.to(() => OrderPaymentScreen(), arguments: {...widget.args, "va": va, "driverName": "Maiki Salamun", "carNum": "989", "userId": loginData["userId"]}));
   }
 
 

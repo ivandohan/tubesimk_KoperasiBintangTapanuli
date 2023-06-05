@@ -47,13 +47,13 @@ dependencies:
   google_maps_flutter: ^2.2.6
   flutter_polyline_points: ^1.0.0
   location: ^4.4.0
-  flutter_svg: ^2.0.5
   cloud_firestore: ^4.7.1
   permission_handler: ^10.2.0
   flutter_typeahead: ^4.4.0
   flutter_google_places: ^0.3.0
   intl: ^0.18.1
   lottie: ^2.3.2
+  fl_chart: ^0.62.0
 
 dev_dependencies:
   flutter_test:

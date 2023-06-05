@@ -6,6 +6,7 @@ import 'package:google_maps_webservice/src/places.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/colors.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/station_controller.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/field_validator.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/factory/location_factory.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/order_process_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/widgets/order_form_appbar.dart';
@@ -25,6 +26,7 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
   DateTime dateTime = DateTime(2022, 12, 24, 5, 30);
   
   late String formatted = DateFormat("EEEE, d MMMM yyyy").format(_date);
+
 
   String result = "";
   late var selectedLocation = widget.args["location"];
@@ -76,17 +78,18 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
     var formattedDate = "${dateTime.day}-${dateTime.month}-${dateTime.year}";
 
     var paymentProcessArguments = {
+      "name": _nameC.text,
       "date": formattedDate,
-      "hour": dateTime.hour,
+      "hour": dateTime.hour.toString(),
       "station": selectedStation,
       "stationNearby": selectedNearStation,
       "location": selectedLocation,
       "cost": (count * 100000).toString(),
       "payment": selectedPayment,
       "service": selectedService,
-      "phone": _phoneC.text,
+      "phone": _phoneC.text ?? "",
       "class": selectedClass,
-      "weight": _weightC,
+      "weight": _weightC.text ?? "",
     };
 
     print("ARRRRRRRRRRRRRRRGGGGGGGGGGGSSSSSSSSSSS : ${widget.args["service"]}");
@@ -115,6 +118,8 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
 
 
   firstStage(TextTheme txtTheme, Size screenSize, BuildContext context) {
+    var validator = Get.put(FieldValidator());
+    final formKey = GlobalKey<FormState>();
     return SizedBox(
       width: double.infinity,
       child: Column(
@@ -135,55 +140,68 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
           ),const SizedBox(
             height: 20,
           ),
-          Text(
-            "Nama anda",
-            style: txtTheme.headline3,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: double.infinity,
-            height: 40,
-            decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.1),
+          Form(
+            key: formKey,
+            child: Column(
+              children: [
+                Text(
+                  "Nama anda",
+                  style: txtTheme.headline3,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.1),
+                  ),
+                  child: TextFormField(
+                    controller: _nameC,
+                    validator: (value) {
+                      validator.nameFieldValidator(value!);
+                    },
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(Icons.person),
+                        hintText: "Nama anda",
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "No. Telp",
+                  style: txtTheme.headline3,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.1),
+                  ),
+                  child: TextFormField(
+                    controller: _phoneC,
+                    validator: (value) {
+                      validator.phoneFieldValidator(value!);
+                    },
+                    decoration: const InputDecoration(
+                        prefixIcon: Icon(Icons.phone),
+                        hintText: "No. Telp anda",
+                        border: InputBorder.none,
+                        focusedBorder: InputBorder.none),
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+              ],
             ),
-            child: TextFormField(
-              controller: _nameC,
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.person),
-                  hintText: "Nama anda",
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Text(
-            "No. Telp",
-            style: txtTheme.headline3,
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Container(
-            width: double.infinity,
-            height: 40,
-            decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.1),
-            ),
-            child: TextFormField(
-              controller: _phoneC,
-              decoration: const InputDecoration(
-                  prefixIcon: Icon(Icons.phone),
-                  hintText: "No. Telp anda",
-                  border: InputBorder.none,
-                  focusedBorder: InputBorder.none),
-            ),
-          ),
-          const SizedBox(
-            height: 20,
           ),
           // Tanggal
           Text(
@@ -220,9 +238,11 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                setState(() {
-                  stage++;
-                });
+                if(formKey.currentState!.validate()){
+                  setState(() {
+                    stage++;
+                  });
+                }
               },
               child: const Text("Lanjut"),
             ),
@@ -236,6 +256,8 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
   }
 
   secondStage(TextTheme txtTheme, Size screenSize, BuildContext context) {
+    final formKey = GlobalKey<FormState>();
+
     return SizedBox(
       width: double.infinity,
       child: Column(

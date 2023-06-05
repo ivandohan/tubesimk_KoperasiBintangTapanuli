@@ -11,6 +11,8 @@ import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/welcome/welco
 class OnBoardingScreen extends StatelessWidget {
   OnBoardingScreen({super.key});
 
+  var args = Get.arguments;
+
   @override
   Widget build(BuildContext context) {
     final obController = OnBoardingController();
@@ -52,7 +54,7 @@ class OnBoardingScreen extends StatelessWidget {
               top: 30,
               right: 20,
               child: TextButton(
-                onPressed: () => Get.to(() => const WelcomeScreen()),
+                onPressed: () => Get.to(() => WelcomeScreen(), arguments: args),
                 child: Text(
                   "Skip",
                   style: Theme.of(context).textTheme.headline6,

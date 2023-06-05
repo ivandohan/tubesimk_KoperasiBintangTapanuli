@@ -1,5 +1,6 @@
 {
-  "isFirstOpen": false,
+  "isFirstOpen": true,
   "isLogin": true,
-  "userLevel": "admin"
+  "userLevel": "super_admin",
+  "userId": "ANSDJUUJFLAKLJAS:XM2922"
 }

@@ -6,7 +6,6 @@ import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/payment_controller.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/user_profile_controller.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/models/payment_model.dart';
-import 'package:tubesimk_koperasibintangtapanuli/src/cores/models/user_model.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/dashboard_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/widgets/order_form_appbar.dart';
 import 'package:lottie/lottie.dart';
@@ -28,13 +27,14 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
   var uCP = Get.put(UserProfileController());
   var pC = Get.put(PaymentController());
 
-  void checkPaymentStatus(userId) async {
+  void checkPaymentStatus () {
     var now = DateTime.now();
     // {date: Tuesday, 23 May 2023, station: Loket KBT Medan, stationNearby: Loket KBT Siantar,
     // location: , cost: 100000, payment: Dana, service: Penumpang, phone: }
     final paymentModel = PaymentModel(
+      userId: args['userId'],
       va: args["va"],
-      userId: userId,
+      userName: args["name"],
       paymentMethod: args["payment"],
       deadline: DateFormat("EEEE, d MMMM yyyy")
           .format(DateTime(now.year, now.month, now.day + 1)),
@@ -49,6 +49,7 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
       paidOn: DateFormat("EEEE, d MMMM yyyy").format(DateTime.now()),
       phone: args["phone"],
       date: args["date"],
+      hour: args["hour"],
     );
 
     pC.addOrder(paymentModel).whenComplete(() {
@@ -76,14 +77,14 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
                     children: [
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: () => Get.offAll(() => DashboardScreen()),
+                          onPressed: () => Get.offAll(() => DashboardScreen(), arguments: args['userId']),
                           child: Text("Kembali"),
                         ),
                       ),
                       const SizedBox(width: 10,),
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () => Get.offAll(() => DashboardScreen()),
+                          onPressed: () => Get.offAll(() => DashboardScreen(), arguments: args['userId']),
                           child: Text("Unduh Tiket"),
                         ),
                       ),
@@ -101,13 +102,7 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
   Widget build(BuildContext context) {
     var txtTheme = Theme.of(context).textTheme;
     print(args);
-    return FutureBuilder(
-        future: uCP.getUserData(),
-        builder: (_, snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.hasData) {
-              UserModel user = snapshot.data as UserModel;
-              return SafeArea(
+    return SafeArea(
                 child: Scaffold(
                   appBar: const OrderAppBar(
                     icon: Icons.payment_sharp,
@@ -166,6 +161,25 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
                               defaultVerticalAlignment:
                                   TableCellVerticalAlignment.middle,
                               children: [
+                                TableRow(
+                                  decoration: BoxDecoration(
+                                    color: Colors.white.withOpacity(0.2),
+                                  ),
+                                  children: [
+                                    const TableCell(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text("Nama"),
+                                      ),
+                                    ),
+                                    TableCell(
+                                      child: Padding(
+                                        padding: const EdgeInsets.all(8),
+                                        child: Text(args['userId']),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                                 TableRow(
                                   decoration: BoxDecoration(
                                     color: Colors.grey.withOpacity(0.2),
@@ -377,7 +391,8 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
                             child: ElevatedButton(
                               onPressed: () {
                                 setState(() {
-                                  checkPaymentStatus(user.id);
+                                  checkPaymentStatus();
+                                  Get.offAll(() => DashboardScreen(), arguments: args['userId']);
                                 });
                               },
                               child: Text("Kembali ke Halaman Utama"),
@@ -392,7 +407,7 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
                               onPressed: () {
                                 setState(() {
                                   isSuccess = !isSuccess;
-                                  checkPaymentStatus(user.id);
+                                  checkPaymentStatus();
                                 });
                               },
                               child: Text("Refresh"),
@@ -423,23 +438,5 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
                   ),
                 ),
               );
-            } else if (snapshot.hasError) {
-              return Center(
-                child: Text(snapshot.error.toString()),
-              );
-            } else {
-              return const Center(
-                child: Text(
-                  "Tidak dapat memuat konten. Coba beberapa saat lagi.",
-                  textAlign: TextAlign.center,
-                ),
-              );
-            }
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
   }
 }

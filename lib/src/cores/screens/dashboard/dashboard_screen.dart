@@ -25,21 +25,15 @@ class DashboardScreen extends StatefulWidget {
 class _DashboardScreenState extends State<DashboardScreen> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 
+  var args = Get.arguments;
+
   @override
   Widget build(BuildContext context) {
 
     return SafeArea(
       child: Scaffold(
         key: _key,
-        drawer: DashboardNavbar(),
-        // floatingActionButton: Builder(
-        //   builder: (context) {
-        //     return FloatingActionButton(
-        //       onPressed: () =>
-        //           Get.to(() => DriverDashboardScreen()), // <-- Opens drawer.
-        //     );
-        //   },
-        // ),
+        drawer: DashboardNavbar(args: args),
         appBar: const DashboardAppBar(),
         body: SingleChildScrollView(
           child: Container(

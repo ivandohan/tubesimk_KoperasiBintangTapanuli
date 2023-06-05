@@ -8,13 +8,16 @@ import 'package:tubesimk_koperasibintangtapanuli/src/constants/text_strings.dart
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/common_widgets/fade_in_animation/animation_design.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/common_widgets/fade_in_animation/fade_in_animation_model.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/common_widgets/fade_in_animation/splash_screen_controller.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/dashboard_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/login/login_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/signup/signup_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/splash_controller/splash_initial_route_controller.dart';
 
 
 class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key});
+  WelcomeScreen({super.key});
+
+  var args = Get.arguments;
 
   @override
   Widget build(BuildContext context) {
@@ -69,10 +72,12 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                     Row(
                       children: [
-                        Expanded(
+                        SizedBox(
+                          height: 45,
+                          width: 50,
                           child: OutlinedButton(
                             onPressed: () => Get.to(() => const LoginScreen()),
-                            child: const Text("Login Staff"),
+                            child: const Icon(Icons.login, size: 17,),
                           ),
                         ),
                         const SizedBox(
@@ -80,7 +85,7 @@ class WelcomeScreen extends StatelessWidget {
                         ),
                         Expanded(
                           child: ElevatedButton(
-                            onPressed: () => Get.to(() => const SplashInitialRouteController()),
+                            onPressed: () => Get.to(() => DashboardScreen(), arguments: args),
                             child: const Text("Pesan Sekarang"),
                           ),
                         ),

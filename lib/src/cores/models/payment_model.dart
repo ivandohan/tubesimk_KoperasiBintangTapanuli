@@ -1,11 +1,12 @@
 class PaymentModel {
-  final String? id;
   final String userId;
+  final String userName;
   final String paymentMethod;
   final String deadline;
   final String cost;
   final String destination;
   final String stationDestination;
+  final String hour;
   final String carNum;
   final String driverName;
   final String service;
@@ -17,12 +18,13 @@ class PaymentModel {
   final String date;
 
   PaymentModel({
-    this.id,
-    required this.va,
     required this.userId,
+    required this.va,
+    required this.userName,
     required this.phone,
     required this.paymentMethod,
     required this.deadline,
+    required this.hour,
     required this.cost,
     required this.destination,
     required this.stationDestination,
@@ -37,8 +39,10 @@ class PaymentModel {
 
   toJson() {
     return {
+      "userId": userId,
       "carNumber": carNum,
       "driverName": driverName,
+      "userName": userName,
       "cost": cost,
       "deadline": deadline,
       "isComplete": isComplete,
@@ -50,8 +54,8 @@ class PaymentModel {
       "stationDestination": stationDestination,
       "firstStation": firstStation,
       "service": service,
-      "userId": userId,
       "userPhone": phone,
+      "hour": hour,
     };
   }
 }

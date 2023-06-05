@@ -2,9 +2,9 @@ const String tSplashTopIcon = "assets/images/splash_images/topnetnot.jpeg";
 const String tSplashImage = "assets/images/splash_images/netnot.jpeg";
 
 
-const String tOnBoardingImage1 = "assets/images/on_boarding_images/w1.jpg";
-const String tOnBoardingImage2 = "assets/images/on_boarding_images/w2.jpg";
-const String tOnBoardingImage3 = "assets/images/on_boarding_images/w3.jpg";
+const String tOnBoardingImage1 = "assets/images/on_boarding_images/w1-min.jpg";
+const String tOnBoardingImage2 = "assets/images/on_boarding_images/w2-min.jpg";
+const String tOnBoardingImage3 = "assets/images/on_boarding_images/w3-min.jpg";
 
 const String tOBOld1 = "assets/images/on_boarding_images/onb2-min.png";
 const String tOBOld2 = "assets/images/on_boarding_images/onb3-min.jpeg";

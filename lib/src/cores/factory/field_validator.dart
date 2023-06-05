@@ -21,7 +21,9 @@ class FieldValidator extends GetxController {
   }
 
   phoneFieldValidator(String value) {
-    if(value.length < 13) {
+    String pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
+    RegExp regExp = new RegExp(pattern);
+    if(value.length < 13 || !regExp.hasMatch(value)) {
       return "Mohon masukkan nomor telepon yang benar";
     } else {
       return null;

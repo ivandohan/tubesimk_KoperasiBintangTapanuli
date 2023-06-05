@@ -1,5 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/admin/admin_trip/add_trip_screen.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/admin/admin_trip/available_car_screen.dart';
 
 class TripTabBarView extends StatelessWidget {
   
@@ -14,40 +17,46 @@ class TripTabBarView extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: color,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.black,
-                      )
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  height: 130,
-                  child: Center(
-                    child: Text(
-                      "Tambah Perjalanan",
-                      textAlign: TextAlign.center,
+                child: GestureDetector(
+                  onTap: () => Get.to(() => AddTripScreen()),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: color,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.black,
+                        )
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    height: 130,
+                    child: Center(
+                      child: Text(
+                        "Tambah Perjalanan",
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),
               ),
               const SizedBox(width: 10,),
               Expanded(
-                child: Container(
-                  height: 130,
-                  decoration: BoxDecoration(
-                      color: color,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.black,
-                      )
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Center(
-                    child: Text(
-                      "Mobil Tersedia",
-                      textAlign: TextAlign.center,
+                child: GestureDetector(
+                  onTap: () => Get.to(() => AvailableCarScreen()),
+                  child: Container(
+                    height: 130,
+                    decoration: BoxDecoration(
+                        color: color,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.black,
+                        )
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    child: Center(
+                      child: Text(
+                        "Mobil Tersedia",
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
                 ),
@@ -55,49 +64,6 @@ class TripTabBarView extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10,),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: color,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(
-                      color: Colors.black,
-                    )
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  height: 130,
-                  child: Center(
-                    child: Text(
-                      "Tambah Rute Baru",
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 10,),
-              Expanded(
-                child: Container(
-                  height: 130,
-                  decoration: BoxDecoration(
-                      color: color,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.black,
-                      )
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  child: Center(
-                    child: Text(
-                      "Pantau Loket",
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
         ],
       ),
     );

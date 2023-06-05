@@ -31,9 +31,9 @@ class LoginForm extends StatelessWidget {
             },
             controller: ec,
             decoration: const InputDecoration(
-              prefixIcon: Icon(Icons.email),
-              labelText: "Email",
-              hintText: "contoh@contoh",
+              prefixIcon: Icon(Icons.phone),
+              labelText: "Nomor HP",
+              hintText: "Nomor handphone kamu",
             ),
           ),
           const SizedBox(

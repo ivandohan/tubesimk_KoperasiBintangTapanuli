@@ -26,12 +26,12 @@ class LoginScreen extends StatelessWidget {
                   subTitle: tLoginSubTitle,
                 ),
                 LoginForm(),
-                FormFooterWidget(
-                  buttonLabel: "Masuk dengan akun Google",
-                  textSpan1: "Belum punya akun? ",
-                  textSpan2: "Klik untuk mendaftar.",
-                  onPressed: () => Get.to(() => const SignUpScreen()),
-                ),
+                // FormFooterWidget(
+                //   buttonLabel: "Masuk dengan akun Google",
+                //   textSpan1: "Belum punya akun? ",
+                //   textSpan2: "Klik untuk mendaftar.",
+                //   onPressed: () => Get.to(() => const SignUpScreen()),
+                // ),
               ],
             ),
           ),
