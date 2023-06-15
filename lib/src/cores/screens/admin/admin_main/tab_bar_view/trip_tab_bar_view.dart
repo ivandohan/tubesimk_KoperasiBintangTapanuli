@@ -29,11 +29,16 @@ class TripTabBarView extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(10),
                     height: 130,
-                    child: Center(
-                      child: Text(
-                        "Tambah Perjalanan",
-                        textAlign: TextAlign.center,
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.mode_of_travel),
+                        Text(
+                          "Tambah Perjalanan",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -52,11 +57,16 @@ class TripTabBarView extends StatelessWidget {
                         )
                     ),
                     padding: const EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        "Mobil Tersedia",
-                        textAlign: TextAlign.center,
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.car_crash),
+                        Text(
+                          "Mobil Tersedia",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),

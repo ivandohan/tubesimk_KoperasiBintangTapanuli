@@ -30,7 +30,7 @@ class _AdminMainScreenState extends State<AdminMainScreen> with TickerProviderSt
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                  Text(
-                    "Horas, Admin!",
+                    "Horas, admin Susi Putri!",
                    style: txtTheme.bodyText1,
                   ),
                 const SizedBox(
@@ -90,56 +90,6 @@ class _AdminMainScreenState extends State<AdminMainScreen> with TickerProviderSt
                 ),
                 const SizedBox(
                   height: 35,
-                ),
-                Text(
-                  "Data dan Analisis",
-                  style: txtTheme.headline3,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  width: double.maxFinite,
-                  height: 100,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 85,
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.black),
-                          ),
-                          child: Center(child: Text("Pengguna")),
-                        ),
-                      ),
-                      const SizedBox(width: 10,),
-                      Expanded(
-                        child: Container(
-                          height: 85,
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.black),
-                          ),
-                          child: Center(child: Text("Pemasukan")),
-                        ),
-                      ),
-                      const SizedBox(width: 10,),
-                      Expanded(
-                        child: Container(
-                          height: 85,
-                          decoration: BoxDecoration(
-                            color: Colors.black.withOpacity(0.1),
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.black),
-                          ),
-                          child: Center(child: Text("Pengeluaran")),
-                        ),
-                      )
-                    ],
-                  ),
                 ),
               ],
             ),

@@ -41,9 +41,11 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
 
   final List stationList = [
     "Loket KBT Medan",
+    "Loket KBT Tebing",
     "Loket KBT Siantar",
     "Loket KBT Porsea",
     "Loket KBT Siborong-borong"
+    "Loket KBT Tarutung",
   ];
 
   final List classList = [
@@ -124,6 +126,7 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
       width: double.infinity,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
             width: double.infinity,
@@ -143,6 +146,8 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
           Form(
             key: formKey,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   "Nama anda",
@@ -159,9 +164,9 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
                   ),
                   child: TextFormField(
                     controller: _nameC,
-                    validator: (value) {
-                      validator.nameFieldValidator(value!);
-                    },
+                    // validator: (value) {
+                    //   validator.nameFieldValidator(value!);
+                    // },
                     decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.person),
                         hintText: "Nama anda",
@@ -187,9 +192,9 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
                   ),
                   child: TextFormField(
                     controller: _phoneC,
-                    validator: (value) {
-                      validator.phoneFieldValidator(value!);
-                    },
+                    // validator: (value) {
+                    //   validator.phoneFieldValidator(value!);
+                    // },
                     decoration: const InputDecoration(
                         prefixIcon: Icon(Icons.phone),
                         hintText: "No. Telp anda",
@@ -238,11 +243,9 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                if(formKey.currentState!.validate()){
-                  setState(() {
-                    stage++;
-                  });
-                }
+                setState(() {
+                  stage++;
+                });
               },
               child: const Text("Lanjut"),
             ),
@@ -367,6 +370,7 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
               ),
               const SizedBox(height: 10,),
               PickCarClass(),
+
             ],
           ),
 
@@ -403,7 +407,23 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
                 ),
               ],
             ),
-
+          const SizedBox(
+            height: 20,
+          ),
+          Text(
+            "Catatan",
+            style: txtTheme.headline3,
+          ),
+          TextField(
+            keyboardType: TextInputType.multiline,
+            decoration: InputDecoration(
+                isDense: true,
+                border: OutlineInputBorder(),
+                prefixIcon: Icon(Icons.textsms),
+                labelText: "Catatan",
+                hintText: "Tuliskan catatan..."
+            ),
+          ),
           // Tombol Konfirmasi
           const SizedBox(
             height: 20,
@@ -520,7 +540,7 @@ class _OrderFormScreenState extends State<OrderFormScreen> {
             child: Align(
               alignment: Alignment.center,
               child: Text(
-                "Rp${(count * 100000).toString()}",
+                "Rp${(count * 110000).toString()}",
               ),
             ),
           ),

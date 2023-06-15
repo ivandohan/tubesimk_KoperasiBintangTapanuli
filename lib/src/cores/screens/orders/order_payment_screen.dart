@@ -1,11 +1,17 @@
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:open_file_plus/open_file_plus.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/payment_controller.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/controllers/user_profile_controller.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/models/payment_model.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/customer_care/customer_care_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/dashboard/dashboard_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/orders/widgets/order_form_appbar.dart';
 import 'package:lottie/lottie.dart';
@@ -20,9 +26,14 @@ class OrderPaymentScreen extends StatefulWidget {
 class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
   var args = Get.arguments;
 
+  final imgUrl = "https://i.ibb.co/HNbp4n0/tiket.jpg";
+  var dio = Dio();
+
+  String path = "";
+
   bool isSuccess = false;
-  final String carNum = '989';
-  final String driverName = "Maiki Salamun";
+  final String carNum = '111';
+  final String driverName = "John Smith";
 
   var uCP = Get.put(UserProfileController());
   var pC = Get.put(PaymentController());
@@ -84,7 +95,16 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
                       const SizedBox(width: 10,),
                       Expanded(
                         child: ElevatedButton(
-                          onPressed: () => Get.offAll(() => DashboardScreen(), arguments: args['userId']),
+                          onPressed: () async {
+                            final appStorage = await getApplicationDocumentsDirectory();
+                            String fullPath = '${appStorage.path}/tiket.jpg';
+                            print('full path ${fullPath}');
+                            openFile(dio, imgUrl, fullPath, context);
+
+                            setState(() {
+                              path = fullPath;
+                            });
+                          },
                           child: Text("Unduh Tiket"),
                         ),
                       ),
@@ -96,6 +116,84 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
           }
       );
     }});
+  }
+
+  Future openFile(Dio dio, String url, String savePath, context) async {
+    final file = download2(dio, url, savePath);
+    if(file == null) return;
+
+    showModalConfirm(context, savePath);
+
+    print('Path : $savePath');
+  }
+
+  void showDownloadProgress(received, total) {
+    if (total != -1) {
+      print((received / total * 100).toStringAsFixed(0) + "%");
+    }
+  }
+
+  Future download2(Dio dio, String url, String savePath) async {
+    try {
+      var response = await dio.get(
+        url,
+        onReceiveProgress: showDownloadProgress,
+        //Received data with List<int>
+        options: Options(
+            responseType: ResponseType.bytes,
+            followRedirects: false,
+            validateStatus: (status) { return status! < 500; }
+        ),
+      );
+      print(response.headers);
+      File file = File(savePath);
+      var raf = file.openSync(mode: FileMode.write);
+      // response.data is List<int> type
+      raf.writeFromSync(response.data);
+      await raf.close();
+
+      return file;
+    } catch (e) {
+      print(e);
+      return null;
+    }
+  }
+
+  showModalConfirm(context, filePath) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (_) {
+          return Container(
+            height: 250,
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Text(
+                  "Berhasil",
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                const SizedBox(height: 25,),
+                Text(
+                  "Unduhan berkas dapat kamu lihat sekarang.",
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 45,),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      OpenFile.open(filePath);
+                    },
+                    child: Text(
+                        "Lihat"
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        }
+    );
   }
 
   @override
@@ -175,7 +273,7 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
                                     TableCell(
                                       child: Padding(
                                         padding: const EdgeInsets.all(8),
-                                        child: Text(args['userId']),
+                                        child: Text(args['name']),
                                       ),
                                     ),
                                   ],
@@ -418,12 +516,15 @@ class _OrderPaymentScreenState extends State<OrderPaymentScreen> {
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              children: const [
-                                Text("Mengalami masalah saat pembayaran?"),
-                                Text(
-                                  "Klik di sini",
-                                  style: TextStyle(
-                                    color: Colors.blue,
+                              children: [
+                                const Text("Mengalami masalah saat pembayaran?"),
+                                GestureDetector(
+                                  onTap: () => Get.to(() => CustomerCareScreen(), arguments: "Keluhan"),
+                                  child: Text(
+                                    "Klik di sini",
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                    ),
                                   ),
                                 ),
                               ],

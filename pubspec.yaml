@@ -54,6 +54,9 @@ dependencies:
   intl: ^0.18.1
   lottie: ^2.3.2
   fl_chart: ^0.62.0
+  dio: ^5.2.0+1
+  path_provider: ^2.0.15
+  open_file_plus: ^3.4.1
 
 dev_dependencies:
   flutter_test:

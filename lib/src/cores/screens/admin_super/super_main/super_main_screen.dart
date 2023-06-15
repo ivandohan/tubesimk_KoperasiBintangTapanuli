@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/admin_super/super_menus/menus/acc_management/acc_management_screen.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/admin_super/super_menus/super_menus_screen.dart';
 
 class SuperMainScreen extends StatelessWidget {
-  const SuperMainScreen({super.key});
+  SuperMainScreen({super.key});
+
+  var actList = [
+    "Admin <Susi Putri> menyelesaikan satu keluhan pengguna.",
+    "Super Admin <Angga Putra> menambahkan akun baru untuk Admin.",
+    "Super Admin <Angga Putra> mengubah tarif layanan Medan - Tarutung.",
+    "Super Admin <Angga Putra> menambah supir baru bernama Maiki Salamun."
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +26,7 @@ class SuperMainScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
-              "Horas, Admin!",
+              "Horas, admin Angga Putra!",
               style: txtTheme.bodyText1,
             ),
             const SizedBox(
@@ -47,23 +55,26 @@ class SuperMainScreen extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.green.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.black),
-                      ),
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Icon(Icons.person),
-                            Text(
-                              "Keanggotaan"
-                            ),
-                          ],
+                    child: GestureDetector(
+                      onTap: () => Get.to(() => AccManagementScreen()),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            color: Colors.green.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.black),
                         ),
-                      ),
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Icon(Icons.person),
+                              Text(
+                                "Keanggotaan"
+                              ),
+                            ],
+                          ),
+                        ),
+                    ),
                     ),
                   const SizedBox(
                     width: 10,
@@ -82,8 +93,8 @@ class SuperMainScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Icon(Icons.account_balance_wallet_outlined),
-                              Text("Tarif")
+                              Icon(Icons.document_scanner),
+                              Text("Laporan")
                             ],
                           ),
                         ),
@@ -128,22 +139,24 @@ class SuperMainScreen extends StatelessWidget {
               height: 10,
             ),
             Container(
-              height: 250,
+              height: 285,
               padding: const EdgeInsets.all(5),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.black),
               ),
               child: ListView.builder(
-                itemCount: 10,
+                itemCount: actList.length,
                 itemBuilder: (_, index) {
                   return Container(
-                    height: 40,
+                    padding: const EdgeInsets.all(5),
+                    height: 60,
                     margin: const EdgeInsets.only(bottom: 5),
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: (index % 2 == 0) ? Colors.blue : Colors.yellow,
+                        color: Colors.grey.withOpacity(0.1),
+                      border: Border.all(color: Colors.black),
                     ),
+                    child: Text(actList[index]),
                   );
                 },
               ),

@@ -3,8 +3,32 @@ import 'package:flutter/material.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/admin/admin_dashboard/admin_dashboard_appbar.dart';
 
-class AdminDriverListScreen extends StatelessWidget {
-  const AdminDriverListScreen({super.key});
+class AdminDriverListScreen extends StatefulWidget {
+
+  AdminDriverListScreen({super.key});
+
+  @override
+  State<AdminDriverListScreen> createState() => _AdminDriverListScreenState();
+}
+
+class _AdminDriverListScreenState extends State<AdminDriverListScreen> {
+  var driverList = [
+    {"nama": "John Smith", "hp": "081212121212", "alamat": "Medan"},
+    {"nama": "Jessica Taylor", "hp": "083434343434", "alamat": "Tarutung"},
+    {"nama": "Messi Silaban", "hp": "085656565656", "alamat": "Parapat"},
+    {"nama": "Willie Sianturi", "hp": "087878787878", "alamat": "Pematang Siantar"},
+    {"nama": "Rafael Panggabean", "hp": "089090909090", "alamat": "Tebing Tinggi"},
+    {"nama": "Irfan Nainggolan", "hp": "082323223233", "alamat": "Porsea"},
+    {"nama": "Gonzales", "hp": "084545454545", "alamat": "Medan"},
+    {"nama": "Crisardi", "hp": "086767776767", "alamat": "Tarutung"},
+    {"nama": "Cristian Vieri", "hp": "089898989899", "alamat": "Parapat"},
+    {"nama": "Kevin Nababan", "hp": "081010101010", "alamat": "Pematang Siantar"},
+    {"nama": "Charles Simanjuntak", "hp": "081313292999", "alamat": "Tebing Tinggi"},
+    {"nama": "Diego Silalahi", "hp": "084236677328", "alamat": "Porsea"},
+    {"nama": "Dani Manik", "hp": "084423442662", "alamat": "Medan"},
+    {"nama": "Markus Putra", "hp": "088190290002", "alamat": "Tarutung"},
+    {"nama": "Sabar Tobing", "hp": "085284539211", "alamat": "Tarutung"},
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -79,256 +103,32 @@ class AdminDriverListScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
-                          ),
+                    for(int i = 0; i < driverList.length; i++)
+                      TableRow(
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.2),
                         ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
+                        children: [
+                          TableCell(
+                            child: Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Text(driverList[i]["nama"].toString()),
+                            ),
                           ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
+                          TableCell(
+                            child: Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Text(driverList[i]["alamat"].toString()),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
+                          TableCell(
+                            child: Padding(
+                              padding: EdgeInsets.all(8),
+                              child: Text(driverList[i]["hp"].toString()),
+                            ),
                           ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Nama"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Alamat"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("No. Hp"),
-                          ),
-                        ),
-                      ],
-                    ),
+                        ],
+                      )
                   ],
                 ),
                 const SizedBox(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/admin/admin_dashboard/admin_dashboard_appbar.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/admin/admin_dashboard/admin_dashboard_screen.dart';
 
 class AddTripScreen extends StatefulWidget {
   const AddTripScreen({super.key});
@@ -22,9 +24,12 @@ class _AddTripScreenState extends State<AddTripScreen> {
   late var selectedStation = ["Loket KBT Medan"];
   final List stationList = [
     "Loket KBT Medan",
+    "Loket KBT Tebing",
     "Loket KBT Siantar",
+    "Loket KBT Parapat",
     "Loket KBT Porsea",
-    "Loket KBT Siborong-borong"
+    "Loket KBT Siborong-borong",
+    "Loket KBT Tarutung",
   ];
 
   var itemCount = 1;
@@ -40,7 +45,9 @@ class _AddTripScreenState extends State<AddTripScreen> {
           icon: Icon(Icons.save_outlined),
           label: Text("Simpan"),
           backgroundColor: Colors.black,
-          onPressed: () {},
+          onPressed: () {
+            showModalConfirm(context);
+          },
         ),
         appBar: AdminDashboardAppBar(),
         body: SingleChildScrollView(
@@ -208,6 +215,41 @@ class _AddTripScreenState extends State<AddTripScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  showModalConfirm(context) {
+    return showModalBottomSheet(
+        context: context,
+        builder: (_) {
+          return Container(
+            height: 250,
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Text(
+                  "Berhasil",
+                  style: Theme.of(context).textTheme.headline4,
+                ),
+                const SizedBox(height: 25,),
+                Text(
+                  "Perjalanan telah ditambahkan.",
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 45,),
+                SizedBox(
+                  width: double.infinity,
+                  child: OutlinedButton(
+                    onPressed: () => Get.to(() => AdminDashboardScreen()),
+                    child: Text(
+                        "Kembali"
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        }
     );
   }
 

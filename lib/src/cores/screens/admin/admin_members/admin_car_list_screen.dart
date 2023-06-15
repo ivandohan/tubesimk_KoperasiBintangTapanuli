@@ -3,8 +3,108 @@ import 'package:flutter/material.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/sizes.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/admin/admin_dashboard/admin_dashboard_appbar.dart';
 
-class AdminCarListScreen extends StatelessWidget {
+class AdminCarListScreen extends StatefulWidget {
   const AdminCarListScreen({super.key});
+
+  @override
+  State<AdminCarListScreen> createState() => _AdminCarListScreenState();
+}
+
+class _AdminCarListScreenState extends State<AdminCarListScreen> {
+
+  var carList = [
+    {
+      "nomor" : 111,
+      "pemilik" : "Ivandohan Siregar",
+      "plat" : "BK 1067 KB",
+      "tipe" : "Eksekutif"
+    },
+    {
+      "nomor" : 222,
+      "pemilik" : "Fadli Tambunan",
+      "plat" : "BK 1067 KB",
+      "tipe" : "Eksekutif"
+    },
+    {
+      "nomor" : 333,
+      "pemilik" : "Tito Situmorang",
+      "plat" : "BK 1133 KSJ",
+      "tipe" : "Eksekutif"
+    },
+    {
+      "nomor" : 444,
+      "pemilik" : "Gihon Sinaga",
+      "plat" : "BK 1124 PWL",
+      "tipe" : "Eksekutif"
+    },
+    {
+      "nomor" : 555,
+      "pemilik" : "Ridopandi Sinaga",
+      "plat" : "BK 1109 JKI",
+      "tipe" : "Eksekutif"
+    },
+    {
+      "nomor" : 666,
+      "pemilik" : "Luis Silalahi",
+      "plat" : "BK 1046 ADS",
+      "tipe" : "Eksekutif"
+    },
+    {
+      "nomor" : 777,
+      "pemilik" : "Andre",
+      "plat" : "BK 1100 SBD",
+      "tipe" : "Eksekutif"
+    },
+    {
+      "nomor" : 888,
+      "pemilik" : "Ferdi Nasution",
+      "plat" : "BB 1234 SO",
+      "tipe" : "Reguler"
+    },
+    {
+      "nomor" : 999,
+      "pemilik" : "Imam Hatris",
+      "plat" : "BK 5678 EP",
+      "tipe" : "Reguler"
+    },
+    {
+      "nomor" : 199,
+      "pemilik" : "Kenang Ghofar",
+      "plat" : "BB 9012 KPK",
+      "tipe": "Reguler"
+    },
+    {
+      "nomor": 121,
+      "pemilik": "Azis Putra",
+      "plat": "BB 5656 SDA",
+      "tipe": "Reguler"
+    },
+    {
+      "nomor": 505,
+      "pemilik": "Arya Ananda",
+      "plat": "BK 3847 PO ",
+      "tipe": "Reguler"
+    },
+    {
+      "nomor": 466,
+      "pemilik": "Rayhan Abrar",
+      "plat": "BB 1029 WS",
+      "tipe": "Reguler"
+    },
+    {
+      "nomor": 377,
+      "pemilik": "Rizki Sahat",
+      "plat": "BB 7890 PBO",
+      "tipe": "Paket"
+    },
+    {
+      "nomor": 288,
+      "pemilik": "Fadhil Lubis",
+      "plat": "BB 3456 PTI",
+      "tipe": "Paket"
+    },
+
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -79,252 +179,28 @@ class AdminCarListScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    TableRow(
+                    for(int i = 0; i < carList.length; i++)
+                      TableRow(
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.2),
                       ),
-                      children: const [
+                      children: [
                         TableCell(
                           child: Padding(
                             padding: EdgeInsets.all(8),
-                            child: Text("989"),
+                            child: Text(carList[i]["nomor"].toString()),
                           ),
                         ),
                         TableCell(
                           child: Padding(
                             padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
+                            child: Text(carList[i]["pemilik"].toString()),
                           ),
                         ),
                         TableCell(
                           child: Padding(
                             padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("989"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("989"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("989"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("989"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("989"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("989"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("989"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("989"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
-                          ),
-                        ),
-                      ],
-                    ),
-                    TableRow(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.2),
-                      ),
-                      children: const [
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("989"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Maiki Salamun"),
-                          ),
-                        ),
-                        TableCell(
-                          child: Padding(
-                            padding: EdgeInsets.all(8),
-                            child: Text("Eksekutif"),
+                            child: Text(carList[i]["tipe"].toString()),
                           ),
                         ),
                       ],

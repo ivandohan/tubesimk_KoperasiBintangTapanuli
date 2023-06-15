@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tubesimk_koperasibintangtapanuli/src/constants/image_strings.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/rules/trip_rules_screen.dart';
 
 import 'order_form_screen.dart';
 
@@ -137,32 +138,35 @@ class _OrderIntroScreenState extends State<OrderIntroScreen> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Container(
-                        width: double.infinity,
-                        height: 40,
-                        padding:
-                            const EdgeInsets.only(top: 5, bottom: 5, left: 15),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(
-                            width: 1,
-                            color: Colors.black26,
+                      GestureDetector(
+                        onTap: () => Get.to(() => TripRulesScreen()),
+                        child: Container(
+                          width: double.infinity,
+                          height: 40,
+                          padding:
+                              const EdgeInsets.only(top: 5, bottom: 5, left: 15),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(
+                              width: 1,
+                              color: Colors.black26,
+                            ),
+                            color: Colors.blue.withOpacity(0.1),
                           ),
-                          color: Colors.blue.withOpacity(0.1),
-                        ),
-                        child: Row(
-                          children: const [
-                            Icon(Icons.rule),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Text(
-                              "Aturan dan Ketentuan",
-                              style: TextStyle(
-                                fontSize: 15,
+                          child: Row(
+                            children: const [
+                              Icon(Icons.rule),
+                              SizedBox(
+                                width: 10,
                               ),
-                            ),
-                          ],
+                              Text(
+                                "Aturan dan Ketentuan",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(

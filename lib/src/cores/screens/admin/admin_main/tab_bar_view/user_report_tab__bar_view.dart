@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tubesimk_koperasibintangtapanuli/src/cores/screens/admin/admin_report/admin_report_user_care_screen.dart';
 
 class UserReportCarTabBarView extends StatelessWidget {
 
@@ -14,20 +16,28 @@ class UserReportCarTabBarView extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: color,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.black,
-                      )
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  height: 130,
-                  child: Center(
-                    child: Text(
-                      "Menunggu Penyelesaian",
-                      textAlign: TextAlign.center,
+                child: GestureDetector(
+                  onTap: () => Get.to(() => AdminReportUserCareScreen()),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: color,
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: Colors.black,
+                        )
+                    ),
+                    padding: const EdgeInsets.all(10),
+                    height: 130,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.timelapse),
+                        Text(
+                          "Menunggu Penyelesaian",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -44,40 +54,22 @@ class UserReportCarTabBarView extends StatelessWidget {
                       )
                   ),
                   padding: const EdgeInsets.all(10),
-                  child: Center(
-                    child: Text(
-                      "Terselesaikan",
-                      textAlign: TextAlign.center,
-                    ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(Icons.check_circle_rounded),
+                      Text(
+                        "Terselesaikan",
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 10,),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: color,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.black,
-                      )
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  height: 130,
-                  child: Center(
-                    child: Text(
-                      "Tambah Panduan Pengguna",
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
         ],
       ),
     );

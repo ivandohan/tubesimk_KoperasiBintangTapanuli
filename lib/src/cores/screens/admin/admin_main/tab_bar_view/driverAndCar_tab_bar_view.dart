@@ -20,7 +20,7 @@ class DriverAndCarTabBarView extends StatelessWidget {
             children: [
               Expanded(
                 child: GestureDetector(
-                  onTap: () => Get.to(() => const AdminDriverListScreen()),
+                  onTap: () => Get.to(() => AdminDriverListScreen()),
                   child: Container(
                     decoration: BoxDecoration(
                         color: color,
@@ -31,11 +31,16 @@ class DriverAndCarTabBarView extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(10),
                     height: 130,
-                    child: const Center(
-                      child: Text(
-                        "Supir",
-                        textAlign: TextAlign.center,
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.person),
+                        Text(
+                          "Supir",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -54,11 +59,16 @@ class DriverAndCarTabBarView extends StatelessWidget {
                         )
                     ),
                     padding: const EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        "Mobil",
-                        textAlign: TextAlign.center,
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.car_crash_outlined),
+                        Text(
+                          "Mobil",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -68,29 +78,6 @@ class DriverAndCarTabBarView extends StatelessWidget {
           const SizedBox(height: 10,),
           Row(
             children: [
-              Expanded(
-                child: GestureDetector(
-                  onTap: () => Get.to(() => const AdminCasherListScreen()),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: color,
-                        borderRadius: BorderRadius.circular(10),
-                        border: Border.all(
-                          color: Colors.black,
-                        )
-                    ),
-                    padding: const EdgeInsets.all(10),
-                    height: 130,
-                    child: Center(
-                      child: Text(
-                        "Kasir",
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 10,),
               Expanded(
                 child: GestureDetector(
                   onTap: () => Get.to(() => const AdminStationListScreen()),
@@ -104,11 +91,16 @@ class DriverAndCarTabBarView extends StatelessWidget {
                         )
                     ),
                     padding: const EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        "Loket",
-                        textAlign: TextAlign.center,
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.location_city),
+                        Text(
+                          "Loket",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),

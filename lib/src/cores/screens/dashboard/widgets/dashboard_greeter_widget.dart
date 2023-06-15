@@ -13,7 +13,7 @@ class DashboardGreeterWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          tDashboardTitle,
+          "Horas!",
           style: txtTheme.bodyText2,
         ),
         Text(

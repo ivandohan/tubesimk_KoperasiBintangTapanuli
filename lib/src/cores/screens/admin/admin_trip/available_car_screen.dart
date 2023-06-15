@@ -52,6 +52,8 @@ class _AvailableCarScreenState extends State<AvailableCarScreen> {
   Widget build(BuildContext context) {
     var txtTheme = Theme.of(context).textTheme;
 
+    final snackBar = SnackBar(content: Text('Berhasil disimpan!'));
+
     return SafeArea(
       child: Scaffold(
         appBar: AdminDashboardAppBar(),
@@ -318,6 +320,17 @@ class _AvailableCarScreenState extends State<AvailableCarScreen> {
                             child: Text("Baris Baru"),
                           ),
                         ),
+                        const SizedBox(width: 5,),
+                        SizedBox(
+                          height: 50,
+                          width: 100,
+                          child: OutlinedButton(
+                            onPressed: () {
+                              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                            },
+                            child: Icon(Icons.save_outlined),
+                          ),
+                        ),
                       ],
                     ),
                   ],
@@ -395,6 +408,17 @@ class _AvailableCarScreenState extends State<AvailableCarScreen> {
                                 });
                               },
                               child: Text("Baris Baru"),
+                            ),
+                          ),
+                          const SizedBox(width: 5,),
+                          SizedBox(
+                            height: 50,
+                            width: 100,
+                            child: OutlinedButton(
+                              onPressed: () {
+                                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                              },
+                              child: Icon(Icons.save_outlined),
                             ),
                           ),
                         ],

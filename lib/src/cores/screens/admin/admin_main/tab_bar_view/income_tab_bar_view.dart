@@ -30,11 +30,16 @@ class IncomeTabBarView extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(10),
                     height: 130,
-                    child: Center(
-                      child: Text(
-                        "Pendapatan",
-                        textAlign: TextAlign.center,
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.account_balance_wallet),
+                        Text(
+                          "Pendapatan",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -53,11 +58,16 @@ class IncomeTabBarView extends StatelessWidget {
                         )
                     ),
                     padding: const EdgeInsets.all(10),
-                    child: Center(
-                      child: Text(
-                        "Pengeluaran",
-                        textAlign: TextAlign.center,
-                      ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Icon(Icons.account_balance_wallet_outlined),
+                        Text(
+                          "Pengeluaran",
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -65,29 +75,34 @@ class IncomeTabBarView extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 10,),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: color,
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(
-                        color: Colors.black,
-                      )
-                  ),
-                  padding: const EdgeInsets.all(10),
-                  height: 130,
-                  child: Center(
-                    child: Text(
-                      "Tarif Layanan",
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     Expanded(
+          //       child: Container(
+          //         decoration: BoxDecoration(
+          //             color: color,
+          //             borderRadius: BorderRadius.circular(10),
+          //             border: Border.all(
+          //               color: Colors.black,
+          //             )
+          //         ),
+          //         padding: const EdgeInsets.all(10),
+          //         height: 130,
+          //         child: Column(
+          //           mainAxisAlignment: MainAxisAlignment.center,
+          //           crossAxisAlignment: CrossAxisAlignment.center,
+          //           children: [
+          //             Icon(Icons.balance_outlined),
+          //             Text(
+          //               "Tarif Layanan",
+          //               textAlign: TextAlign.center,
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );
